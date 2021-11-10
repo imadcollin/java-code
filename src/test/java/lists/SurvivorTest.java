@@ -2,9 +2,6 @@ package lists;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class SurvivorTest {
@@ -30,8 +27,18 @@ class SurvivorTest {
     }
 
     @Test
-    public void test5() {
-        Survivor.josephusPermutation(new Object[]{}, 3);
+    public void check1() {
+        assertArrayEquals((Survivor.check(new Object[]{1, 2, 3, 4, 5, 6, 7}, 3)), new Object[]{3, 6, 2, 5, 1, 4, 7});
+    }
+
+    @Test
+    public void check2() {
+        assertArrayEquals((Survivor.check(new Object[]{1, 2, 3, 4, 5, 6, 7}, 3)), new Object[]{3, 6, 2, 5, 1, 4, 7});
+    }
+
+    @Test
+    public void test7() {
+        assertNotEquals(Survivor.check(new Object[]{"C", "o", "d", "e", "W", "a", "r", "s"}, 4), new Object[]{"e", "s", "W", "o", "C", "d", "r", "a"});
     }
 
 }
