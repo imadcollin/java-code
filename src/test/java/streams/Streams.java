@@ -67,5 +67,8 @@ public class Streams {
         assertEquals(max_sub, 3);
     }
 
+    @Test
+    public void no_print(){
 
+    }
 }
