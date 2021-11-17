@@ -1,7 +1,9 @@
 package streams;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -29,6 +31,25 @@ public class StreamCollectors {
         assertEquals(usersWithAges.get(0).getAge(), 15);
         assertEquals(usersWithAges.get(1).getAge(), 18);
         assertEquals(usersWithAges.get(2).getAge(), 22);
+
+    }
+
+    @Test
+    public void filterUserUsingMap() {
+        List<UsersAge> usersWithAges = Arrays.asList(new UsersAge("adam", 18), new UsersAge("eva", 22),
+                new UsersAge("Moa", 22), new UsersAge("shad", 15));
+        Map<Integer, List<UsersAge>> map = usersWithAges.stream().collect(Collectors.groupingBy(UsersAge::getAge));
+
+        assertEquals(map.size(), 3);
+
+        map.forEach((age, user) -> {
+            System.out.println(age + ":");
+            user.forEach((u) -> System.out.println(u.getName()));
+
+        });
+        assertEquals(map.get(18).size(), 1);
+        assertEquals(map.get(22).size(), 2);// 22 -> Eva and Moa
+        assertEquals(map.get(15).size(), 1);
 
     }
 }
