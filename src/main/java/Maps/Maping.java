@@ -42,11 +42,6 @@ public class Maping {
         return map.entrySet().stream().filter(x -> name.equalsIgnoreCase(x.getValue().getName())).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
     }
-
-    public Map<Integer,Student> mapOfTwoMaps (Map<Integer,Student>map1, Map<Integer,Student>map2){
-        return map1.entrySet().stream().map(entry ->map2.put(entry.getKey(),entry.getValue())).collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue,(v,v1)->));
-
-    }
 }
 
 class Student {
