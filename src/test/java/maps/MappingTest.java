@@ -1,7 +1,11 @@
 package maps;
 
 import Maps.Maping;
+import Maps.Student;
 import org.junit.jupiter.api.Test;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -39,5 +43,27 @@ public class MappingTest {
         maping = new Maping();
         int size = maping.fetchStudentsWithoutSpcificName2(maping.fetchStudents(), "Alice").size();
         assertEquals(2, size);
+    }
+
+    @Test
+    public void findFirstStudent() {
+        maping = new Maping();
+        Map<Integer, Student> map = new HashMap<>();
+        map.put(1, new Student(14, "Alice"));
+        map.put(2, new Student(44, "Alice"));
+        map.put(3, new Student(33, "Bob"));
+        map.put(4, new Student(55, "Eva"));
+        assertEquals(maping.mapGetFirst(map, "Alice"), 1);
+    }
+
+    @Test
+    public void findFirstStudentWithIterator() {
+        maping = new Maping();
+        Map<Integer, Student> map = new HashMap<>();
+        map.put(1, new Student(14, "Alice"));
+        map.put(2, new Student(44, "Alice"));
+        map.put(3, new Student(33, "Bob"));
+        map.put(4, new Student(55, "Eva"));
+        assertEquals(maping.mapGetFirst(map, "Alice"), 1);
     }
 }

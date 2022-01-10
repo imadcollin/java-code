@@ -42,28 +42,20 @@ public class Maping {
         return map.entrySet().stream().filter(x -> name.equalsIgnoreCase(x.getValue().getName())).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
     }
-}
 
-class Student {
-    private int age;
-    private String name;
+    public int mapGetFirst(Map<Integer, Student> map, String name) {
 
-    public Student(int age, String name) {
-        this.age = age;
-        this.name = name;
+        return map.entrySet().stream().anyMatch(s -> s.getValue().getName().equals(name)) ? 1 : 0;
     }
 
-    ;
+    public int mapGetFirstWithIterator(Map<Integer, Student> map, String name) {
+        Iterator<Map.Entry<Integer, Student>> iterator = map.entrySet().iterator();
+        while (iterator.hasNext()) {
+            if (iterator.next().getValue().getName().equals(name))
+                return 1;
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return this.name;
+        }
+        return -1;
     }
 }
+
