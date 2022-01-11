@@ -4,6 +4,15 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Maping {
+    public static void main(String[] args) {
+        Map<Integer, String> map = Hashmaps();
+        Map<Integer, String> map2 = HashTable();
+        Map<Integer, String> map3 = treeMap();
+        print(map);
+        print(map2);
+        print(map3);
+    }
+
     public Map<String, Integer> myMap() {
         Map<String, Integer> map = new HashMap<>();
         map.put("one", 1);
@@ -56,6 +65,39 @@ public class Maping {
 
         }
         return -1;
+    }
+
+    public static Map<Integer, String> Hashmaps() {
+        Map<Integer, String> countries = new HashMap<>();
+        countries.put(2, "USA");
+        countries.put(1, "SE");
+        countries.put(3, "IT");
+        return countries;
+    }
+
+    public static boolean hasValue(Map<Integer, String> map) {
+        return map.containsKey(1);
+    }
+
+    public static Map<Integer, String> HashTable() {
+        Map<Integer, String> countries = new Hashtable<>();
+        countries.put(2, "USA");
+        countries.put(1, "SE");
+        countries.put(3, "IT");
+        return countries;
+    }
+
+    public static Map<Integer, String> treeMap() {
+        Map<Integer, String> countries = new TreeMap<>();
+        countries.put(2, "USA");
+        countries.put(1, "SE");
+        countries.put(3, "IT");
+        return countries;
+    }
+
+    public static void print(Map<Integer, String> map) {
+        map.entrySet().forEach(System.out::println);
+        System.out.println("------------------");
     }
 }
 
