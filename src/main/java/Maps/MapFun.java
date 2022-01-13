@@ -24,6 +24,14 @@ public class MapFun {
 
         Assertions.assertEquals(MapFun.listOfObjects(originalPoints).get(0).x, 2);
         Assertions.assertEquals(MapFun.listOfObjects(originalPoints).get(0).y, 4);
+
+        Assertions.assertEquals(MapCaps(Arrays.asList("a", "b", "c")).get(0), "A");
+        Assertions.assertEquals(MapCaps(Arrays.asList("a", "b", "c")).get(1), "B");
+        Assertions.assertEquals(MapCaps(Arrays.asList("a", "b", "c")).get(2), "C");
+
+        Assertions.assertEquals(MapCaps2(Arrays.asList("a", "b", "c")).get(0), "A");
+        Assertions.assertEquals(MapCaps2(Arrays.asList("a", "b", "c")).get(1), "B");
+        Assertions.assertEquals(MapCaps2(Arrays.asList("a", "b", "c")).get(2), "C");
     }
 
     public static List<Integer> listOfIntegers(List<String> list) {
@@ -36,6 +44,14 @@ public class MapFun {
 
     public static List<Point> listOfObjects(List<Point> objectList) {
         return objectList.stream().map(n -> new Point(n.x * 2, n.y * 2)).collect(Collectors.toList());
+    }
+
+    public static List<String> MapCaps(List<String> map) {
+        return map.stream().map(Caps::caps).collect(Collectors.toList());
+    }
+
+    public static List<String> MapCaps2(List<String> map) {
+        return map.stream().map(String::toUpperCase).collect(Collectors.toList());
     }
 }
 
@@ -52,6 +68,11 @@ class Point {
     public String toString() {
         return ("x:" + this.x + "--" + this.y);
     }
+}
 
+class Caps {
+    public static String caps(String s) {
+        return s.toUpperCase();
+    }
 }
 
