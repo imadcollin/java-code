@@ -2,8 +2,13 @@ package lists;
 
 import com.sun.org.apache.xpath.internal.compiler.FunctionTable;
 
+import java.awt.event.ItemListener;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 public class ListofList {
 
@@ -38,6 +43,10 @@ public class ListofList {
 
     public static <T, R> Object[][] test3(Function<T, R> fn, T[][] list) {
         return Arrays.stream(list).map(e -> Arrays.stream(e).map(fn).toArray(Object[]::new)).toArray(Object[][]::new);
+    }
+
+    public static List<Integer> getOneList(List<List<Integer>> list2){
+        return list2.stream().flatMap(Collection::stream).collect(Collectors.toList());
     }
 }
 
