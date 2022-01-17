@@ -3,6 +3,7 @@ package lists;
 import com.sun.org.apache.xpath.internal.compiler.FunctionTable;
 
 import java.awt.event.ItemListener;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -48,5 +49,15 @@ public class ListofList {
     public static List<Integer> getOneList(List<List<Integer>> list2){
         return list2.stream().flatMap(Collection::stream).collect(Collectors.toList());
     }
+
+    public static List<Integer> getOneList2(List<List<Integer>> lists){
+        List<Integer> mergedList = new ArrayList<>();
+        for (List<Integer> list : lists
+             ) {
+            mergedList.addAll(list);
+        }
+        return mergedList;
+    }
+
 }
 

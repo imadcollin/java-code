@@ -4,7 +4,9 @@ import Maps.Maping;
 import Maps.Student;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -65,5 +67,15 @@ public class MappingTest {
         map.put(3, new Student(33, "Bob"));
         map.put(4, new Student(55, "Eva"));
         assertEquals(maping.mapGetFirst(map, "Alice"), 1);
+    }
+
+    @Test
+    public void getOneMap() {
+        maping = new Maping();
+        List<Integer> integerList = Arrays.asList(1, 2, 3);
+        List<String> stringList = Arrays.asList("one", "two", "three");
+        assertEquals(3, maping.getMap(integerList, stringList).size());
+        assertEquals("one", maping.getMap(integerList, stringList).get(1));
+        assertEquals("two", maping.getMap(integerList, stringList).get(2));
     }
 }

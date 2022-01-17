@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Maping {
+  /*
     public static void main(String[] args) {
         Map<Integer, String> map = Hashmaps();
         Map<Integer, String> map2 = HashTable();
@@ -11,7 +12,9 @@ public class Maping {
         print(map);
         print(map2);
         print(map3);
+
     }
+   */
 
     public Map<String, Integer> myMap() {
         Map<String, Integer> map = new HashMap<>();
@@ -93,6 +96,15 @@ public class Maping {
         countries.put(1, "SE");
         countries.put(3, "IT");
         return countries;
+    }
+
+    public Map<Integer, String> getMap(List<Integer> integerList, List<String> stringList) {
+        Map<Integer, String> listListMap = new HashMap<>();
+        if (integerList.size() == stringList.size())
+            for (int i = 0; i < integerList.size(); i++) {
+                listListMap.put(integerList.get(i), stringList.get(i));
+            }
+        return listListMap;
     }
 
     public static void print(Map<Integer, String> map) {
