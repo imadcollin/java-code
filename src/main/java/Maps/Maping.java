@@ -111,5 +111,19 @@ public class Maping {
         map.entrySet().forEach(System.out::println);
         System.out.println("------------------");
     }
+    public  static TreeMap<Integer, String> sortMap(Map<Integer, String> map){
+        Map<Integer,String > treeMap = new TreeMap<>(map);
+        return (TreeMap<Integer, String>) treeMap;
+    }
+    public  static TreeMap<Integer, String> sortMap2(Map<Integer, String> map){
+        Map<Integer,String > treeMap = new TreeMap<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return 0;
+            }
+        });
+        treeMap.putAll(map);
+        return (TreeMap<Integer, String>) treeMap;
+    }
 }
 

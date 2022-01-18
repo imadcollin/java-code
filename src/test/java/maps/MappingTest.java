@@ -9,7 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MappingTest {
     private Maping maping;
@@ -77,5 +78,33 @@ public class MappingTest {
         assertEquals(3, maping.getMap(integerList, stringList).size());
         assertEquals("one", maping.getMap(integerList, stringList).get(1));
         assertEquals("two", maping.getMap(integerList, stringList).get(2));
+    }
+
+    @Test
+    public void testSortMap() {
+        maping = new Maping();
+        Map<Integer, String> map = new HashMap<>();
+        map.put(1, "one");
+        map.put(2, "two");
+        map.put(3, "three");
+        map.put(4, "a");
+
+        assertEquals(4, maping.sortMap(map).entrySet().size());
+        assertEquals("two", maping.sortMap(map).get(2));
+        assertEquals("two", maping.sortMap(map).get(2));
+    }
+
+    @Test
+    public void testSortMap2() {
+        maping = new Maping();
+        Map<Integer, String> map = new HashMap<>();
+        map.put(1, "one");
+        map.put(2, "two");
+        map.put(3, "three");
+        map.put(4, "a");
+
+        assertEquals(4, maping.sortMap2(map).entrySet().size());
+        assertEquals("two", maping.sortMap(map).get(2));
+        assertEquals("two", maping.sortMap(map).get(2));
     }
 }
