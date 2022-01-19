@@ -89,9 +89,9 @@ public class MappingTest {
         map.put(3, "three");
         map.put(4, "a");
 
-        assertEquals(4, maping.sortMap(map).entrySet().size());
-        assertEquals("two", maping.sortMap(map).get(2));
-        assertEquals("two", maping.sortMap(map).get(2));
+        assertEquals(4, Maping.sortMap(map).entrySet().size());
+        assertEquals("two", Maping.sortMap(map).get(2));
+        assertEquals("two", Maping.sortMap(map).get(2));
     }
 
     @Test
@@ -103,8 +103,8 @@ public class MappingTest {
         map.put(3, "three");
         map.put(4, "a");
 
-        assertEquals(4, maping.sortMap2(map).entrySet().size());
-        assertEquals("two", maping.sortMap(map).get(2));
-        assertEquals("two", maping.sortMap(map).get(2));
+        assertEquals(4, Maping.sortMap2(map).entrySet().size());
+        assertEquals("two", Maping.sortMap(map).get(2));
+        assertEquals("two", Maping.sortMap(map).get(2));
     }
 }

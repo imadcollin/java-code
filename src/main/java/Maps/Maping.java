@@ -112,18 +112,12 @@ public class Maping {
         System.out.println("------------------");
     }
     public  static TreeMap<Integer, String> sortMap(Map<Integer, String> map){
-        Map<Integer,String > treeMap = new TreeMap<>(map);
-        return (TreeMap<Integer, String>) treeMap;
+        return new TreeMap<>(map);
     }
-    public  static TreeMap<Integer, String> sortMap2(Map<Integer, String> map){
-        Map<Integer,String > treeMap = new TreeMap<>(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return 0;
-            }
-        });
-        treeMap.putAll(map);
-        return (TreeMap<Integer, String>) treeMap;
+    public  static LinkedHashMap<Integer, String> sortMap2(Map<Integer, String> map){
+
+        LinkedHashMap<Integer,String>nh= new  LinkedHashMap<>();
+        return  map.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue, (e1,e2)-> e1, LinkedHashMap::new));
     }
 }
 
