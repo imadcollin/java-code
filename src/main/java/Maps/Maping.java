@@ -111,13 +111,25 @@ public class Maping {
         map.entrySet().forEach(System.out::println);
         System.out.println("------------------");
     }
-    public  static TreeMap<Integer, String> sortMap(Map<Integer, String> map){
+
+    public static TreeMap<Integer, String> sortMap(Map<Integer, String> map) {
         return new TreeMap<>(map);
     }
-    public  static LinkedHashMap<Integer, String> sortMap2(Map<Integer, String> map){
 
-        LinkedHashMap<Integer,String>nh= new  LinkedHashMap<>();
-        return  map.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue, (e1,e2)-> e1, LinkedHashMap::new));
+    public static LinkedHashMap<Integer, String> sortMap2(Map<Integer, String> map) {
+
+        LinkedHashMap<Integer, String> nh = new LinkedHashMap<>();
+        return map.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+    }
+
+    public static List<Integer> convertMapKeysToList(Map<Integer, String> map) {
+        List<Integer> list = new ArrayList<>(map.keySet());
+        return list;
+    }
+
+    public static List<String> convetMapToListOfValues(Map<Integer, String> map) {
+        List<String> list = new ArrayList<>(map.values());
+        return list;
     }
 }
 

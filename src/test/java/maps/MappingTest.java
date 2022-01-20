@@ -107,4 +107,36 @@ public class MappingTest {
         assertEquals("two", Maping.sortMap(map).get(2));
         assertEquals("two", Maping.sortMap(map).get(2));
     }
+
+    @Test
+    public void testMapTolistKeys() {
+        maping = new Maping();
+        Map<Integer, String> map = new HashMap<>();
+        map.put(1, "one");
+        map.put(2, "two");
+        map.put(3, "three");
+        map.put(4, "a");
+
+        assertEquals(4, Maping.convertMapKeysToList(map).size());
+        assertEquals(1, Maping.convertMapKeysToList(map).get(0));
+        assertEquals(2, Maping.convertMapKeysToList(map).get(1));
+        assertEquals(3, Maping.convertMapKeysToList(map).get(2));
+
+    }
+
+    @Test
+    public void testMapTolistValuess() {
+        maping = new Maping();
+        Map<Integer, String> map = new HashMap<>();
+        map.put(1, "one");
+        map.put(2, "two");
+        map.put(3, "three");
+        map.put(4, "a");
+
+        assertEquals(4, Maping.convetMapToListOfValues(map).size());
+        assertEquals("one", Maping.convetMapToListOfValues(map).get(0));
+        assertEquals("two", Maping.convetMapToListOfValues(map).get(1));
+        assertEquals("three", Maping.convetMapToListOfValues(map).get(2));
+
+    }
 }
