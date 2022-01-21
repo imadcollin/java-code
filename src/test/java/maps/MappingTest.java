@@ -4,10 +4,7 @@ import Maps.Maping;
 import Maps.Student;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -137,6 +134,24 @@ public class MappingTest {
         assertEquals("one", Maping.convetMapToListOfValues(map).get(0));
         assertEquals("two", Maping.convetMapToListOfValues(map).get(1));
         assertEquals("three", Maping.convetMapToListOfValues(map).get(2));
+
+    }
+
+    @Test
+    public void testlistsToMaps() {
+        maping = new Maping();
+        List<Map<String, String>> mapList = new ArrayList<>();
+        Map<String, String> map = new HashMap<>();
+        map.put("1", "one");
+        map.put("2", "two");
+
+        Map<String, String> map2 = new HashMap<>();
+        map2.put("1", "one");
+        map2.put("2", "two");
+        mapList.add(map);
+        mapList.add(map2);
+
+        assertEquals(2, Maping.getmapKeysFromList(mapList).size());
 
     }
 }

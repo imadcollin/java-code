@@ -131,5 +131,14 @@ public class Maping {
         List<String> list = new ArrayList<>(map.values());
         return list;
     }
+
+    public static Map<String, String> getmapKeysFromList(List<Map<String, String>> map) {
+        Map<String, String> result = new HashMap<>();
+        map.stream().forEach(e -> {
+            result.putAll(e.entrySet().stream()
+                    .collect(Collectors.toMap(entry -> entry.getKey(), entry -> (String) entry.getValue())));
+        });
+        return result;
+    }
 }
 
