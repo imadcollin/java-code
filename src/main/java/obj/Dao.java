@@ -20,14 +20,15 @@ public class Dao {
         return school.getStudents().stream().filter(x -> x.getAge() == age).collect(Collectors.toList());
     }
 
-    public void addStudByAges(List<School> schools, List<Student> students) {
+    public List<School> addStudByAges(List<School> schools, List<Student> students) {
         if (students.size() > 0) {
             List<Student> pri = students.stream().filter(student -> student.getAge() > 20 && student.getAge() < 30).collect(Collectors.toList());
             List<Student> sco = students.stream().filter(student -> student.getAge() > 30 && student.getAge() < 40).collect(Collectors.toList());
             List<Student> uni = students.stream().filter(student -> student.getAge() > 40).collect(Collectors.toList());
             schools.stream().filter(x -> x.getLevel() == School.Phase.PRIMARY).forEach(y -> y.setStudents(pri));
-            schools.stream().filter(x -> x.getLevel() == School.Phase.PRIMARY).forEach(y -> y.setStudents(sco));
-            schools.stream().filter(x -> x.getLevel() == School.Phase.PRIMARY).forEach(y -> y.setStudents(uni));
+            schools.stream().filter(x -> x.getLevel() == School.Phase.SCONDRY).forEach(y -> y.setStudents(sco));
+            schools.stream().filter(x -> x.getLevel() == School.Phase.UNIVERSITY).forEach(y -> y.setStudents(uni));
         }
+        return schools;
     }
 }

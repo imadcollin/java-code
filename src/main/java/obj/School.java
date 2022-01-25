@@ -9,6 +9,11 @@ public class School {
         this.students = students;
     }
 
+    public School(String name, Phase Level) {
+        this.name = name;
+        this.level = Level;
+    }
+
     @Override
     public String toString() {
         return "School{" +

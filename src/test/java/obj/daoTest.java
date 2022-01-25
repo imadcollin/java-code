@@ -33,5 +33,26 @@ class daoTest {
         assertEquals(1, dao.getStudentByAge(school1, 22).size());
     }
 
+    @Test
+    public void addStudentsByAges() {
+        Student student1 = new Student(22, "Adam");
+        Student student2 = new Student(24, "Louis");
+        Student student3 = new Student(28, "Noa");
+        Student student4 = new Student(44, "Adam");
+        List<Student> studentList = Arrays.asList(student1, student2, student3, student4);
+        School school1 = new School("school_one", School.Phase.PRIMARY);
+        School school2 = new School("school_two", School.Phase.SCONDRY);
+        School school3 = new School("school_three", School.Phase.UNIVERSITY);
+
+        List<School> schoolList = Arrays.asList(school1, school2, school3);
+        Dao dao = new Dao();
+        assertEquals(3, dao.addStudByAges(schoolList, studentList).size());
+        assertEquals("school_two", dao.addStudByAges(schoolList, studentList).get(1).getName());
+        assertEquals("school_three", dao.addStudByAges(schoolList, studentList).get(2).getName());
+
+        assertEquals("Adam", dao.addStudByAges(schoolList, studentList).get(2).getStudents().get(0).getName());
+        assertEquals(1, dao.addStudByAges(schoolList, studentList).get(2).getStudents().size());
+    }
+
 
 }
