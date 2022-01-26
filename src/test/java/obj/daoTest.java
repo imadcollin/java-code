@@ -3,7 +3,9 @@ package obj;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -52,6 +54,23 @@ class daoTest {
 
         assertEquals("Adam", dao.addStudByAges(schoolList, studentList).get(2).getStudents().get(0).getName());
         assertEquals(1, dao.addStudByAges(schoolList, studentList).get(2).getStudents().size());
+    }
+
+    @Test
+    public void mapStudnets() {
+
+        Map<Integer, String> map = new HashMap<>();
+        Dao dao = new Dao();
+
+        map.put(1, "Lamm");
+        map.put(2, "Soul");
+        map.put(3, "Nancy");
+        map.put(4, "Koma");
+        assertEquals(4, dao.mapStudents(map).size());
+        assertEquals("Lamm", dao.mapStudents(map).get(0).getName());
+        assertEquals(1, dao.mapStudents(map).get(0).getId());
+        assertEquals("Koma", dao.mapStudents(map).get(3).getName());
+        assertEquals(1, dao.mapStudents(map).get(0).getId());
     }
 
 

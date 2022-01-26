@@ -1,6 +1,10 @@
 package obj;
 
 public class Student {
+    public Student() {
+
+    }
+
     public void setAge(int age) {
         this.age = age;
     }
@@ -26,6 +30,16 @@ public class Student {
     }
 
     private int age;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    private int id;
     private String name;
 
     public Student(int age, String name) {

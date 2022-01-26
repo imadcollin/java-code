@@ -2,6 +2,7 @@ package obj;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Dao {
@@ -31,4 +32,29 @@ public class Dao {
         }
         return schools;
     }
+
+    public List<Student> mapStudents(Map<Integer, String> map) {
+
+        return map.entrySet().stream().map(x -> {
+            Student student = new Student();
+            student.setId(x.getKey());
+            student.setName(x.getValue());
+            return student;
+        }).collect(Collectors.toList());
+
+/*
+        for (Map.Entry entry : map.entrySet()
+        ) {
+           // Student student = new Student();
+            Integer id = (Integer) entry.getKey();
+            String name = (String) entry.getValue();
+            student.setId(id);
+            student.setName(name);
+            students.add(student);
+        }
+        return students;
+
+ */
+    }
+
 }
