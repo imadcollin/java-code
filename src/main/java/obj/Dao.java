@@ -57,4 +57,8 @@ public class Dao {
  */
     }
 
+    public List<Student> convert2D_List(List<List<Student>> list) {
+        return list.stream().flatMap(List::stream).collect(Collectors.toList());
+    }
+
 }

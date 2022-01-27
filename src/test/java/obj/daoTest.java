@@ -2,10 +2,7 @@ package obj;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -71,6 +68,27 @@ class daoTest {
         assertEquals(1, dao.mapStudents(map).get(0).getId());
         assertEquals("Koma", dao.mapStudents(map).get(3).getName());
         assertEquals(1, dao.mapStudents(map).get(0).getId());
+    }
+
+    @Test
+    public void ListofListToOneList() {
+        Dao dao = new Dao();
+        Student student1 = new Student(22, "Adam");
+        Student student2 = new Student(24, "Louis");
+        Student student3 = new Student(28, "Noa");
+        Student student4 = new Student(44, "Adam");
+
+        List<Student> studentList = Arrays.asList(student1, student2);
+        List<Student> studentList2 = Arrays.asList(student3, student4);
+        List<List<Student>> students = new ArrayList<>();
+        students.add(studentList);
+        students.add(studentList2);
+
+        assertEquals(4, dao.convert2D_List(students).size());
+        assertEquals("Adam", dao.convert2D_List(students).get(0).getName());
+        assertEquals("Louis", dao.convert2D_List(students).get(1).getName());
+        assertEquals("Noa", dao.convert2D_List(students).get(2).getName());
+
     }
 
 
