@@ -61,4 +61,24 @@ public class Dao {
         return list.stream().flatMap(List::stream).collect(Collectors.toList());
     }
 
+    public List<Student> convertMapt(Map<Integer, String> map) {
+        List<Student> students = new ArrayList<>();
+        for (Map.Entry entry : map.entrySet()
+        ) {
+            Student student = new Student();
+            student.setAge((Integer) entry.getKey());
+            student.setName((String) entry.getValue());
+            students.add(student);
+        }
+        return students;
+    }
+
+    public List<Student> convertMap2(Map<Integer, String> map) {
+        return map.entrySet().stream().map(x -> {
+            Student s = new Student();
+            s.setAge(x.getKey());
+            s.setName(x.getValue());
+            return s;
+        }).collect(Collectors.toList());
+    }
 }

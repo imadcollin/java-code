@@ -91,5 +91,26 @@ class daoTest {
 
     }
 
+    @Test
+    public void Map2List() {
+        Dao dao = new Dao();
+        Map<Integer, String> map = new HashMap<>();
+        map.put(1, "Lamm");
+        map.put(2, "Soul");
+        map.put(3, "Nancy");
+        map.put(4, "Koma");
+        assertEquals(4, dao.convertMapt(map).size());
+    }
+
+    @Test
+    public void Map2List2() {
+        Dao dao = new Dao();
+        Map<Integer, String> map = new HashMap<>();
+        map.put(1, "Lamm");
+        map.put(2, "Soul");
+        map.put(3, "Nancy");
+        map.put(4, "Koma");
+        assertEquals(4, dao.convertMap2(map).size());
+    }
 
 }
