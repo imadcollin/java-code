@@ -35,5 +35,13 @@ class DoubleOtherTest {
         assertEquals(8, doubleOther.doubletwo(list).get(3));
     }
 
+    @Test
+    public void doubleSecontTest() {
+        int[] arr = new int[]{1, 2, 3, 4, 5};
+        DoubleOther doubleOther = new DoubleOther();
+        assertEquals(5, doubleOther.doubleSecond(arr).length);
+        assertEquals(1, doubleOther.doubleSecond(arr)[0]);
+        assertEquals(4, doubleOther.doubleSecond(arr)[1]);
+    }
 
 }

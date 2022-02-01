@@ -18,7 +18,11 @@ public class DoubleOther {
         return integerList;
     }
 
-    List<Integer> doubletwo(List<Integer> list) {
+    public List<Integer> doubletwo(List<Integer> list) {
         return IntStream.range(0, list.size()).mapToObj(index -> index % 2 != 0 ? (list.get(index)) * 2 : list.get(index)).collect(Collectors.toList());
+    }
+
+    public int[] doubleSecond(int arr[]) {
+        return IntStream.range(0, arr.length).map(i -> i % 2 != 0 ? 2 * arr[i] : arr[i]).toArray();
     }
 }
