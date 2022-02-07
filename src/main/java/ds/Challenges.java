@@ -64,4 +64,16 @@ public class Challenges {
     String reserv3(String original) {
         return original.trim().isEmpty() ? original : Arrays.stream(original.split(" ")).map(s -> new StringBuilder(s).reverse().toString()).collect(Collectors.joining(" "));
     }
+
+    public String remove(String str) {
+        String s = "";
+        for (int i = 1; i < str.length() - 1; i++) {
+            s += str.charAt(i);
+        }
+        return s;
+    }
+
+    public String remove2(String str) {
+        return str.substring(1, str.length() - 1);
+    }
 }

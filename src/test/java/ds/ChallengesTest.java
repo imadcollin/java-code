@@ -40,4 +40,20 @@ class ChallengesTest {
         assertEquals(" ", challenges.reserv3(" "));
 //        assertEquals("", challenges.reserv3("   "));
     }
+
+    @Test
+    public void testRemove() {
+        assertEquals("es", challenges.remove("test"));
+        assertEquals("atin", challenges.remove("eating"));
+        assertEquals("riv", challenges.remove("drive"));
+        assertEquals("ovi", challenges.remove("covid"));
+    }
+
+    @Test
+    public void testRemove2() {
+        assertEquals("es", challenges.remove2("test"));
+        assertEquals("atin", challenges.remove2("eating"));
+        assertEquals("riv", challenges.remove2("drive"));
+        assertEquals("ovi", challenges.remove2("covid"));
+    }
 }
