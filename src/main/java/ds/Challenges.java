@@ -76,4 +76,34 @@ public class Challenges {
     public String remove2(String str) {
         return str.substring(1, str.length() - 1);
     }
+
+    public static String getMiddle(String word) {
+        char[] arr = new char[word.length()];
+        int len = word.length();
+        int mid = len / 2;
+
+        String s = "";
+        for (int i = 0; i < word.length(); i++) {
+            arr[i] = word.charAt(i);
+        }
+
+        if (len % 2 == 0) {
+            s = "" + arr[mid - 1] + arr[mid];
+        }
+        if (len % 2 != 0) {
+            s = "" + arr[mid];
+        }
+        return s;
+    }
+
+    public String getMidddle2(String word) {
+        if (word.length() == 0) return "";
+
+        int len = word.length();
+        if (len % 2 == 0) {
+            int mid = len / 2;
+            return word.substring(mid - 1, mid + 1);
+        }
+        return "" + word.charAt((len / 2));
+    }
 }

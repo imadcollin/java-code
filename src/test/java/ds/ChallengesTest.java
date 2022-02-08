@@ -56,4 +56,29 @@ class ChallengesTest {
         assertEquals("riv", challenges.remove2("drive"));
         assertEquals("ovi", challenges.remove2("covid"));
     }
+
+    @Test
+    public void evenTests() {
+        assertEquals("es", challenges.getMiddle("test"));
+        assertEquals("dd", challenges.getMiddle("middle"));
+    }
+
+    @Test
+    public void oddTests() {
+        assertEquals("t", challenges.getMiddle("testing"));
+        assertEquals("A", challenges.getMiddle("A"));
+    }
+
+
+    @Test
+    public void middlEevenTests() {
+        assertEquals("es", challenges.getMidddle2("test"));
+        assertEquals("dd", challenges.getMidddle2("middle"));
+    }
+
+    @Test
+    public void middleOddTests() {
+        assertEquals("t", challenges.getMidddle2("testing"));
+        assertEquals("A", challenges.getMidddle2("A"));
+    }
 }
