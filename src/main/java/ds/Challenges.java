@@ -2,6 +2,7 @@ package ds;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Challenges {
 
@@ -105,5 +106,24 @@ public class Challenges {
             return word.substring(mid - 1, mid + 1);
         }
         return "" + word.charAt((len / 2));
+    }
+
+    public static String createPhoneNumber(int[] numbers) {
+        int len = numbers.length;
+        StringBuilder s = new StringBuilder();
+        s.append("(");
+        for (int i = 0; i < len; i++) {
+            if (i == 3)
+                s.append(") ");
+            s.append(numbers[i]);
+            if (i == 5)
+                s.append("-");
+
+        }
+        return s.toString();
+    }
+
+    public String phoneNu2(int[] numbers) {
+        return String.format("(%d%d%d) %d%d%d-%d%d%d%d", IntStream.of(numbers).boxed().toArray());
     }
 }

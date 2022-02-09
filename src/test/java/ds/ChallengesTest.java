@@ -81,4 +81,14 @@ class ChallengesTest {
         assertEquals("t", challenges.getMidddle2("testing"));
         assertEquals("A", challenges.getMidddle2("A"));
     }
+
+    @Test
+    public void phoneNumber() {
+        assertEquals("(123) 456-7890", challenges.createPhoneNumber(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 0}));
+    }
+
+    @Test
+    public void phoneNumber2() {
+        assertEquals("(123) 456-7890", challenges.phoneNu2(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 0}));
+    }
 }
