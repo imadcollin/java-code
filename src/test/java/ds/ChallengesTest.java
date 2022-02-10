@@ -91,4 +91,11 @@ class ChallengesTest {
     public void phoneNumber2() {
         assertEquals("(123) 456-7890", challenges.phoneNu2(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 0}));
     }
+
+    @Test
+    public void getcount() {
+        assertEquals(1, challenges.getCount("tests"));
+        assertEquals(2, challenges.getCount("live"));
+        assertEquals(3, challenges.getCount("area"));
+    }
 }

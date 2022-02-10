@@ -126,4 +126,16 @@ public class Challenges {
     public String phoneNu2(int[] numbers) {
         return String.format("(%d%d%d) %d%d%d-%d%d%d%d", IntStream.of(numbers).boxed().toArray());
     }
+
+    public int getCount(String str) {
+        if (str.length() == 0) return 0;
+        char stringChar[] = str.toCharArray();
+        int count = 0;
+        for (char c : stringChar
+        ) {
+            if (c == 'a' || c == 'u' || c == 'u' || c == 'e' || c == 'i') count++;
+        }
+
+        return count;
+    }
 }
