@@ -138,4 +138,20 @@ public class Challenges {
 
         return count;
     }
+
+    public int[] sumParts(int[] arr) {
+        int parts[] = new int[arr.length + 1];
+        int sum = 0;
+        int counter = 0;
+        for (int i = 0; i < arr.length; i++) {
+
+            for (int j = counter; j < arr.length; j++) {
+                sum += arr[j];
+            }
+            counter++;
+            parts[i] = sum;
+            sum = 0;
+        }
+        return parts;
+    }
 }
