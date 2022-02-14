@@ -1,6 +1,8 @@
 package ds;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -153,5 +155,30 @@ public class Challenges {
             sum = 0;
         }
         return parts;
+    }
+
+    public int[] sumParts2(int[] ls) {
+        List<Integer> collect = new ArrayList();
+        int start = 0;
+        int sum = 0;
+        for (Integer i : ls
+        ) {
+            for (int j = start; j < ls.length; j++) {
+                sum += ls[j];
+            }
+            start++;
+            collect.add(sum);
+            sum = 0;
+        }
+        collect.add(0);
+        return collect.stream().mapToInt(Integer::intValue).toArray();
+    }
+
+    public int[] sumParts3(int[] ls) {
+        int arr[] = new int[ls.length + 1];
+        for (int i = ls.length - 1; i >= 0; i--) {
+            arr[i] = arr[i + 1] + ls[i];
+        }
+        return arr;
     }
 }
