@@ -12,7 +12,7 @@ class FilteringTest {
     @Test
     void testFilter() {
         Filtering filtering = new Filtering();
-        List<Object> list = Arrays.asList(1, 2, "tttt", 4);
+        List<Object> list = Arrays.asList(1, 2, "test", 4);
         assertEquals(3, filtering.filterList(list).size());
         assertEquals(1, filtering.filterList(list).get(0));
         assertEquals(2, filtering.filterList(list).get(1));
