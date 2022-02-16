@@ -46,12 +46,12 @@ public class Order {
         this.products = products;
     }
 
-    public List<Customer> getConstoconsumerss() {
-        return constoconsumerss;
+    public List<Customer> getCustomer() {
+        return customer;
     }
 
-    public void setConstoconsumerss(List<Customer> constoconsumerss) {
-        this.constoconsumerss = constoconsumerss;
+    public void setCustomer(List<Customer> constoconsumerss) {
+        this.customer = constoconsumerss;
     }
 
     private long id;
@@ -67,5 +67,5 @@ public class Order {
     private String deliveryDate;
     private String orderDate;
     private List<Product> products;
-    private List<Customer> constoconsumerss;
+    private List<Customer> customer;
 }

@@ -44,8 +44,18 @@ public class ApiMock {
         List<Product> l1 = getProductAsList().stream().filter(x -> x.getId() < 4).collect(Collectors.toList());
         List<Product> l2 = getProductAsList().stream().filter(x -> x.getId() > 4).collect(Collectors.toList());
         List<Product> l3 = getProductAsList().stream().filter(x -> x.getId() > 6).collect(Collectors.toList());
+
+        Customer c1 = getCustomersAsList().get(0);
+        Customer c2 = getCustomersAsList().get(1);
+        Customer c3 = getCustomersAsList().get(2);
+
+        order.setCustomer(Arrays.asList(c1));
         order.setProducts(l1);
+
         order1.setProducts(l2);
+        order1.setCustomer(Arrays.asList(c2));
+
+        order1.setCustomer(Arrays.asList(c3));
         order2.setProducts(l3);
         return Arrays.asList(order, order1, order2, order3, order4, order5, order6);
     }
