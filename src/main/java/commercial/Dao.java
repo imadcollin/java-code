@@ -32,10 +32,10 @@ public class Dao {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
+            return false;
         });
-        Optional<Order> optionalOrder = orderStream.filter(y -> y.getCustomer().stream().anyMatch(y -> y.getTier() == 2)).findAny();
-        return optionalOrder.ifPresent(optionalOrder.get().getProducts();
-
+        Optional<Order> optionalOrder = orderStream.filter(y -> y.getCustomer().stream().anyMatch(z -> z.getTier() == 2)).findAny();
+        return optionalOrder.get().getProducts();
     }
 
 }

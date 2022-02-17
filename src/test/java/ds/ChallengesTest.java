@@ -148,4 +148,19 @@ class ChallengesTest {
                 new int[]{10037855, 9293730, 9292795, 9292388, 9291934, 9291504, 9291414, 9291270, 2581057, 2580168, 2579358, 0});
 
     }
+
+    private double precision = 0.0000000000001;
+
+    @Test
+    public void testFindUnique() {
+        assertEquals(1.0, challenges.findUnque(new double[]{0, 1, 0}), precision);
+        assertEquals(2.0, challenges.findUnque(new double[]{1, 1, 1, 2, 1, 1}), precision);
+    }
+
+
+    @Test
+    public void testUniqe() {
+        assertEquals(1.0, challenges.findUn(new double[]{0, 1, 0}), precision);
+        assertEquals(2.0, challenges.findUn(new double[]{1, 1, 1, 2, 1, 1}), precision);
+    }
 }

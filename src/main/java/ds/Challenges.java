@@ -181,4 +181,20 @@ public class Challenges {
         }
         return arr;
     }
+
+    public double findUnque(double arr[]) {
+        if (arr[0] != arr[1] && arr[0] != arr[2]) return arr[0];
+        for (double el : arr
+        ) {
+            if (el != arr[0])
+                return el;
+
+        }
+        return 0;
+    }
+
+    public double findUn(double arr[]){
+        Arrays.sort(arr);
+        return  arr[0]==arr[1]? arr[arr.length-1]: arr[0];
+    }
 }
