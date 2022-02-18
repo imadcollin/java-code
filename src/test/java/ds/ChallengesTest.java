@@ -163,4 +163,9 @@ class ChallengesTest {
         assertEquals(1.0, challenges.findUn(new double[]{0, 1, 0}), precision);
         assertEquals(2.0, challenges.findUn(new double[]{1, 1, 1, 2, 1, 1}), precision);
     }
+
+    @Test
+    public void testpaintLetterboxes() {
+        assertEquals(1.0, challenges.paintLetterboxes(123,140));
+    }
 }

@@ -193,8 +193,35 @@ public class Challenges {
         return 0;
     }
 
-    public double findUn(double arr[]){
+    public double findUn(double arr[]) {
         Arrays.sort(arr);
-        return  arr[0]==arr[1]? arr[arr.length-1]: arr[0];
+        return arr[0] == arr[1] ? arr[arr.length - 1] : arr[0];
     }
+
+    public static int[] paintLetterboxes(final int start, final int end) {
+        int counters[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+        int[] arr = new int[end - start];
+        for (int i = start; i < end; i++) {
+            arr = get(counters, i, arr);
+        }
+
+        return arr;
+    }
+
+    public static int[] get(int[] arr, int num, int[] fin) {
+        int digit = num;
+        while (digit > 10) {
+
+            digit = digit / 10;
+        }
+        int inc = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == digit) fin[i] = fin[i] + 1;
+
+            num = num % 10;
+        }
+
+        return fin;
+    }
+
 }
