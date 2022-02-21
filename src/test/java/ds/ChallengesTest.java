@@ -166,6 +166,11 @@ class ChallengesTest {
 
     @Test
     public void testpaintLetterboxes() {
-        assertEquals(1.0, challenges.paintLetterboxes(123,140));
+        assertArrayEquals(new int[]{1, 9, 6, 3, 0, 1, 1, 1, 1, 1}, challenges.paintLetterboxes(125, 132));
+    }
+
+    @Test
+    public void testpaintLetterboxesVersion2() {
+        assertArrayEquals(new int[]{1, 9, 6, 3, 0, 1, 1, 1, 1, 1}, challenges.paintLetterboxesVersion2(125, 132));
     }
 }

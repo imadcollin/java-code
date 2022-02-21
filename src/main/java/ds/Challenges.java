@@ -199,29 +199,42 @@ public class Challenges {
     }
 
     public static int[] paintLetterboxes(final int start, final int end) {
-        int counters[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
-        int[] arr = new int[end - start];
-        for (int i = start; i < end; i++) {
-            arr = get(counters, i, arr);
+        int counters[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int[] arr = new int[10];
+        for (int i = start; i <= end; i++) {
+            arr = pushLastDigit(counters, i, arr);
         }
-
         return arr;
     }
 
-    public static int[] get(int[] arr, int num, int[] fin) {
+    public static int[] pushLastDigit(int[] arr, int num, int[] fin) {
+        System.out.println(num);
         int digit = num;
-        while (digit > 10) {
-
+        int last = 0;
+        while (digit > 0) {
+            last = digit % 10;
             digit = digit / 10;
+            for (int i = 0; i < arr.length; i++) {
+                if (arr[i] == last) fin[i] = fin[i] + 1;
+            }
         }
-        int inc = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == digit) fin[i] = fin[i] + 1;
-
-            num = num % 10;
-        }
-
         return fin;
+    }
+
+    public static int[] paintLetterboxesVersion2(final int start, final int end) {
+        List<Integer> list = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+        int[] repeated = new int[10];
+        int last = 0;
+        for (int num = start; num <= end; num++) {
+            int curr = num;
+            while (curr > 0) {
+                last = curr % 10;
+                curr = curr / 10;
+                if (list.contains(last))
+                    repeated[last] = repeated[last] + 1;
+            }
+        }
+        return repeated;
     }
 
 }
