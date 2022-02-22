@@ -237,4 +237,17 @@ public class Challenges {
         return repeated;
     }
 
+    public static boolean isVeryEvenNumber(int number) {
+        int lastDigit = 0;
+        int sum = 0;
+        while (number > 0) {
+            lastDigit = number % 10;
+            number = number / 10;
+            sum = sum + lastDigit;
+        }
+        if (sum > 9) 
+            return isVeryEvenNumber(sum);
+
+        return  (sum % 2 == 0);
+    }
 }
