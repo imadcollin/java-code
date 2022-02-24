@@ -3,10 +3,7 @@ package streams;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -69,5 +66,23 @@ class ConvertersTest {
         assertEquals(3, converters.listOfMapToStringList2(mapList).size());
         assertEquals("one", converters.listOfMapToStringList2(mapList).get(0));
         assertEquals("two", converters.listOfMapToStringList2(mapList).get(1));
+    }
+
+    @Test
+    void testConvertMapToList() {
+        List<String> list = Arrays.asList("one", "two", "three");
+        assertEquals(3, converters.listToMap(list).size());
+        assertEquals("one", converters.listToMap(list).get("1"));
+        assertEquals("two", converters.listToMap(list).get("2"));
+        assertEquals("three", converters.listToMap(list).get("3"));
+    }
+
+    @Test
+    void testConvertMapToListStream() {
+        List<String> list = Arrays.asList("one", "two", "three");
+        assertEquals(3, converters.listToMapStream(list).size());
+        assertEquals(3, converters.listToMapStream(list).get("one"));
+        assertEquals(3, converters.listToMapStream(list).get("two"));
+        assertEquals(5, converters.listToMapStream(list).get("three"));
     }
 }

@@ -1,8 +1,10 @@
 package streams;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Converters {
@@ -22,9 +24,9 @@ public class Converters {
         List<String> list = new ArrayList<>();
         for (Map<String, String> map : mapList
         ) {
-            for (Map.Entry entry : map.entrySet()
+            for (Map.Entry<String, String> entry : map.entrySet()
             ) {
-                list.add((String) entry.getValue());
+                list.add(entry.getValue());
             }
         }
         return list;
@@ -32,5 +34,19 @@ public class Converters {
 
     public List<String> listOfMapToStringList2(List<Map<String, String>> mapList) {
         return (List<String>) mapList.stream().map(x -> new ArrayList(x.values())).flatMap(List::stream).collect(Collectors.toList());
+    }
+
+    public Map<String, String> listToMap(List<String> list) {
+        Map<String, String> map = new HashMap<>();
+        int inx = 1;
+        for (String el : list
+        ) {
+            map.put(String.valueOf(inx++), el);
+        }
+        return map;
+    }
+
+    public Map<String, Integer> listToMapStream(List<String> list) {
+        return list.stream().collect(Collectors.toMap(Function.identity(), String::length));
     }
 }
