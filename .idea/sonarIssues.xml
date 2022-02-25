@@ -113,6 +113,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/streams/Product.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/streams/ProductStream.java">
+          <value>
+            <set />
+          </value>
+        </entry>
       </map>
     </option>
   </component>
