@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ConvertersTest {
     private static Converters converters;
@@ -84,5 +85,17 @@ class ConvertersTest {
         assertEquals(3, converters.listToMapStream(list).get("one"));
         assertEquals(3, converters.listToMapStream(list).get("two"));
         assertEquals(5, converters.listToMapStream(list).get("three"));
+    }
+
+    @Test
+    void testUnmodifiedList() {
+        List<String> list = Arrays.asList("one", "two", "three");
+        assertThrows(UnsupportedOperationException.class, () -> converters.unmodifiedList(list, "str"));
+    }
+
+    @Test
+    void testUnmodifiedListthen() {
+        List<String> list = Arrays.asList("one", "two", "three");
+        assertThrows(UnsupportedOperationException.class, () -> converters.unmodifiedList2(list, "str"));
     }
 }
