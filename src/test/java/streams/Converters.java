@@ -46,27 +46,4 @@ public class Converters {
     public Map<String, Integer> listToMapStream(List<String> list) {
         return list.stream().collect(Collectors.toMap(Function.identity(), String::length));
     }
-
-    public List<String> unmodifiedList(List<String> list, String s) {
-        List<String> x = list.stream().collect(Collectors.toUnmodifiableList());
-        try {
-            x.add(s);
-
-        } catch (Exception e) {
-            throw new UnsupportedOperationException("Unspported operation");
-        }
-        return x;
-    }
-
-    public List<String> unmodifiedList2(List<String> list, String s) {
-        List<String> x = list.stream().collect(Collectors.
-                collectingAndThen(Collectors.toList(), Collections::<String>unmodifiableList));
-        try {
-            x.add(s);
-
-        } catch (Exception e) {
-            throw new UnsupportedOperationException("Unspported operation");
-        }
-        return x;
-    }
 }

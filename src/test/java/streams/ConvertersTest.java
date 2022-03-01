@@ -87,15 +87,4 @@ class ConvertersTest {
         assertEquals(5, converters.listToMapStream(list).get("three"));
     }
 
-    @Test
-    void testUnmodifiedList() {
-        List<String> list = Arrays.asList("one", "two", "three");
-        assertThrows(UnsupportedOperationException.class, () -> converters.unmodifiedList(list, "str"));
-    }
-
-    @Test
-    void testUnmodifiedListthen() {
-        List<String> list = Arrays.asList("one", "two", "three");
-        assertThrows(UnsupportedOperationException.class, () -> converters.unmodifiedList2(list, "str"));
-    }
 }
