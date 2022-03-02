@@ -40,4 +40,11 @@ class CollectorExamplesTest {
         List<String> list = Arrays.asList("one", "two", "three");
         assertEquals("one two three", collectorExamples.joinSpaces(list));
     }
+
+    @Test
+    void testGroupings() {
+        List<String> list = Arrays.asList("1", "11", "111");
+        assertEquals(3, collectorExamples.grouping(list).size());
+        assertEquals(3, collectorExamples.grouping(list).values().size());
+    }
 }

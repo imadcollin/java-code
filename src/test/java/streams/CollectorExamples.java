@@ -2,7 +2,12 @@ package streams;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.toSet;
 
 public class CollectorExamples {
 
@@ -35,5 +40,9 @@ public class CollectorExamples {
 
     public String joinSpaces(List<String> stringList) {
         return stringList.stream().collect(Collectors.joining(" "));
+    }
+
+    public Map<Integer, Set<String>> grouping(List<String> list) {
+        return list.stream().collect(groupingBy(String::length, toSet()));
     }
 }
