@@ -36,4 +36,24 @@ class StreamerTest {
         assertEquals("two", streamer.builder("one", "two").collect(Collectors.toList()).get(1));
     }
 
+    @Test
+    void testGenerate() {
+        assertEquals("one", streamer.generate("one").collect(Collectors.toList()).get(0));
+        assertEquals(10, streamer.generate("one").collect(Collectors.toList()).size());
+    }
+
+    @Test
+    void testIterate() {
+        assertEquals(10, streamer.iterateByLimit(5, 10).size());
+        assertEquals(5, streamer.iterateByLimit(5, 10).get(0));
+        assertEquals(10, streamer.iterateByLimit(5, 10).get(1));
+    }
+
+    @Test
+    void testRange() {
+        assertEquals(1, streamer.range(1, 10).findFirst().getAsInt());
+        assertEquals(2, streamer.range(1, 10).toArray()[1]);
+        assertEquals(3, streamer.range(1, 10).toArray()[2]);
+    }
+
 }
