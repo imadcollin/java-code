@@ -2,6 +2,7 @@ package streams;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -29,5 +30,17 @@ public class Streamer {
 
     public IntStream range(int a, int b) {
         return IntStream.range(a, b);
+    }
+
+    public Optional<String> findStr(String str) {
+        return Stream.of("one", "two", "three").filter(x -> x.contains(str)).findAny();
+    }
+
+    public Optional<String> pipesCaps(List<String> list, String str) {
+        return list.stream().filter(x -> x.contains(str)).map(y -> y.toUpperCase()).findFirst();
+    }
+
+    public int sums(int start, int last) {
+        return IntStream.range(start, last).reduce((a, b) -> a + b).orElse(0);
     }
 }
