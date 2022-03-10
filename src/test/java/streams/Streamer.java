@@ -43,4 +43,55 @@ public class Streamer {
     public int sums(int start, int last) {
         return IntStream.range(start, last).reduce((a, b) -> a + b).orElse(0);
     }
+
+    public List<String> toString(List<Product> list) {
+        return list.stream().map(Product::getName).collect(Collectors.toList());
+    }
+
+    public String oneString(List<Product> list) {
+        return list.stream().map(Product::getName).collect(Collectors.joining(",", "[", "]"));
+    }
+
+    public double getAvg(List<Product> list) {
+        return list.stream().collect(Collectors.averagingDouble(Product::getPrice)).shortValue();
+    }
+
+
+    static class Product {
+        private int id;
+        private String name;
+        private double price;
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public double getPrice() {
+            return price;
+        }
+
+        public void setPrice(double price) {
+            this.price = price;
+        }
+
+
+        public Product(int id, String name, double price) {
+            this.id = id;
+            this.name = name;
+            this.price = price;
+        }
+
+    }
 }

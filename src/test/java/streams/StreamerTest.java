@@ -77,4 +77,27 @@ class StreamerTest {
         assertEquals(15, streamer.sums(1, 6));
     }
 
+    @Test
+    void testStringLIst() {
+        assertEquals("Java", streamer.toString(getProductList()).get(0));
+        assertEquals("C#", streamer.toString(getProductList()).get(1));
+    }
+
+    @Test
+    void testOneString() {
+        assertEquals("[Java,C#,Python]", streamer.oneString(getProductList()));
+    }
+
+    @Test
+    void testavg() {
+        assertEquals(58.0, streamer.getAvg(getProductList()));
+    }
+
+    List<Streamer.Product> getProductList() {
+        return Arrays.asList(
+                new Streamer.Product(1, "Java", 45),
+                new Streamer.Product(2, "C#", 55),
+                new Streamer.Product(3, "Python", 75));
+    }
+
 }
