@@ -29,4 +29,9 @@ public class MovieDao {
         return repo.getMovies().stream().map(Movie::getDirectors).flatMap(List::stream).collect(Collectors.groupingBy(Director::getName, Collectors.counting()));
 
     }
+
+    //Find the number of genres of each director's movies:
+    public Map<String, Long> genresByDir() {
+        return repo.getMovies().stream().map(x -> x.getGenres()).flatMap(List::stream).collect(Collectors.groupingBy(Genre::getName, Collectors.counting()));
+    }
 }

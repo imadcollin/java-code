@@ -17,6 +17,9 @@ public class MovieRepo {
         m2.setDirectors(Arrays.asList(new Director(1, "Java", "Pro"), new Director(1, "C", "Pro")));
         m3.setDirectors(Arrays.asList(new Director(1, "Pizza", "Cook"), new Director(1, "Salad", "Cook")));
         movies.addAll(Arrays.asList(m1, m2, m3, m4));
+
+        m1.setGenres(getListOFGenre());
+        m2.setGenres(Arrays.asList(new Genre(5, "Genre_5"), new Genre(6, "Genre_6")));
         return movies;
     }
 
@@ -27,6 +30,16 @@ public class MovieRepo {
         Director d3 = new Director(3, "Jazz", "General");
         Director d4 = new Director(4, "Melody", "General");
         list.addAll(Arrays.asList(d1, d2, d3, d4));
+        return list;
+    }
+
+    public List<Genre> getListOFGenre() {
+        List<Genre> list = new ArrayList<>();
+        Genre g1 = new Genre(1, "Genre_1");
+        Genre g2 = new Genre(2, "Genre_2");
+        Genre g3 = new Genre(3, "Genre_2");
+        Genre g4 = new Genre(4, "Genre_2");
+        list.addAll(Arrays.asList(g1, g2, g3, g4));
         return list;
     }
 

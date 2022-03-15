@@ -22,4 +22,15 @@ class MovieDaoTest {
         assertEquals(2, movieDao.moviesByDirectories().get("The game"));
     }
 
+    @Test
+    void testMoviesByDirecotrie2s() {
+        assertEquals(8, movieDao.moviesByDirectories2().size());
+        assertEquals(2, movieDao.moviesByDirectories2().get("Pizza"));
+        assertEquals(3, movieDao.moviesByDirectories2().get("Java"));
+    }
+
+    @Test
+    void testMovieByGenre() {
+        assertEquals(4, movieDao.genresByDir().size());
+    }
 }
