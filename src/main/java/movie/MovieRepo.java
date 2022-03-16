@@ -50,4 +50,20 @@ public class MovieRepo {
     public void deleteMovieById(int id) {
         movies = getMovies().stream().filter(x -> x.getId() != id).collect(Collectors.toList());
     }
+
+    public List<Movie> getMoviesByDirectoy(String dir) {
+        return getMovies().stream().map(movie -> {
+            movie.getDirectors().stream().filter(director -> director.getName().equals(dir));
+            return movie;
+
+        }).collect(Collectors.toList());
+    }
+
+    public List<Movie> getMoviesByDiGenre(String genre) {
+        return getMovies().stream().map(movie -> {
+            movie.getGenres().stream().filter(g -> g.getName().equals(genre));
+            return movie;
+
+        }).collect(Collectors.toList());
+    }
 }
