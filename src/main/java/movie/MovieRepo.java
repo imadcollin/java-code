@@ -7,8 +7,26 @@ import java.util.stream.Collectors;
 
 public class MovieRepo {
     private static List<Movie> movies = new ArrayList<>();
+    private static MovieRepo movieRepo;
+
+    public static MovieRepo getInstance() {
+        if (movieRepo == null) {
+            movieRepo = new MovieRepo();
+        }
+        return movieRepo;
+    }
+
+    MovieRepo() {
+        super();
+        Init();
+    }
 
     public List<Movie> getMovies() {
+        return movies;
+    }
+
+    public void Init() {
+        System.out.println("reached");
         Movie m1 = new Movie(1, "Speed fast", 2020, "General");
         Movie m2 = new Movie(2, "The game", 1999, "General");
         Movie m3 = new Movie(3, "End of the life", 1900, "Norm");
@@ -16,11 +34,10 @@ public class MovieRepo {
         m1.setDirectors(getListOFDir());
         m2.setDirectors(Arrays.asList(new Director(1, "Java", "Pro"), new Director(1, "C", "Pro")));
         m3.setDirectors(Arrays.asList(new Director(1, "Pizza", "Cook"), new Director(1, "Salad", "Cook")));
-        movies.addAll(Arrays.asList(m1, m2, m3, m4));
 
         m1.setGenres(getListOFGenre());
         m2.setGenres(Arrays.asList(new Genre(5, "Genre_5"), new Genre(6, "Genre_6")));
-        return movies;
+        movies.addAll(Arrays.asList(m1, m2, m3, m4));
     }
 
     public List<Director> getListOFDir() {
@@ -65,5 +82,14 @@ public class MovieRepo {
             return movie;
 
         }).collect(Collectors.toList());
+    }
+
+    public void addMovie(Movie movie) throws Exception {
+        if (isExist(movie)) throw new Exception("Already exist...");
+        movies.add(movie);
+    }
+
+    private boolean isExist(Movie movie) {
+        return movies.stream().filter(x -> x.getId() == movie.getId()).findAny().isPresent();
     }
 }
