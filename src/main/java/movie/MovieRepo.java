@@ -21,12 +21,11 @@ public class MovieRepo {
         Init();
     }
 
-    public List<Movie> getMovies() {
+    List<Movie> getMovies() {
         return movies;
     }
 
-    public void Init() {
-        System.out.println("reached");
+    private void Init() {
         Movie m1 = new Movie(1, "Speed fast", 2020, "General");
         Movie m2 = new Movie(2, "The game", 1999, "General");
         Movie m3 = new Movie(3, "End of the life", 1900, "Norm");
@@ -40,7 +39,7 @@ public class MovieRepo {
         movies.addAll(Arrays.asList(m1, m2, m3, m4));
     }
 
-    public List<Director> getListOFDir() {
+    List<Director> getListOFDir() {
         List<Director> list = new ArrayList<>();
         Director d1 = new Director(1, "Pop", "General");
         Director d2 = new Director(2, "Classic", "General");
@@ -50,7 +49,7 @@ public class MovieRepo {
         return list;
     }
 
-    public List<Genre> getListOFGenre() {
+    private List<Genre> getListOFGenre() {
         List<Genre> list = new ArrayList<>();
         Genre g1 = new Genre(1, "Genre_1");
         Genre g2 = new Genre(2, "Genre_2");
@@ -60,15 +59,15 @@ public class MovieRepo {
         return list;
     }
 
-    public Movie getMovieById(int id) {
+    Movie getMovieById(int id) {
         return getMovies().stream().filter(x -> x.getId() == id).findAny().get();
     }
 
-    public void deleteMovieById(int id) {
+    void deleteMovieById(int id) {
         movies = getMovies().stream().filter(x -> x.getId() != id).collect(Collectors.toList());
     }
 
-    public List<Movie> getMoviesByDirectoy(String dir) {
+    List<Movie> getMoviesByDirectoy(String dir) {
         return getMovies().stream().map(movie -> {
             movie.getDirectors().stream().filter(director -> director.getName().equals(dir));
             return movie;
@@ -76,7 +75,7 @@ public class MovieRepo {
         }).collect(Collectors.toList());
     }
 
-    public List<Movie> getMoviesByDiGenre(String genre) {
+    List<Movie> getMoviesByDiGenre(String genre) {
         return getMovies().stream().map(movie -> {
             movie.getGenres().stream().filter(g -> g.getName().equals(genre));
             return movie;
@@ -84,12 +83,33 @@ public class MovieRepo {
         }).collect(Collectors.toList());
     }
 
-    public void addMovie(Movie movie) throws Exception {
+    void addMovie(Movie movie) throws Exception {
         if (isExist(movie)) throw new Exception("Already exist...");
         movies.add(movie);
     }
 
-    private boolean isExist(Movie movie) {
+    boolean isExist(Movie movie) {
         return movies.stream().filter(x -> x.getId() == movie.getId()).findAny().isPresent();
+    }
+
+    void editMovie(Movie movie) throws Exception {
+        if (isExist(movie)) {
+            Movie m = movieRepo.getMovieById(movie.getId());
+            deleteMovieById(m.getId());
+        }
+        addMovie(movie);
+    }
+
+    List<Movie> getMOviesByGenre(String genre) {
+        List<Movie> movies = new ArrayList<>();
+        for (Movie m : getMovies()
+        ) {
+            for (Genre g : m.getGenres()
+            ) {
+                if (g.getName() == genre)
+                    movies.add(m);
+            }
+        }
+        return movies;
     }
 }

@@ -3,6 +3,8 @@ package movie;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.NoSuchElementException;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MovieRepoTest {
@@ -55,5 +57,23 @@ class MovieRepoTest {
         Exception e = Assertions.assertThrows(Exception.class, () -> {
             repo.addMovie(myMovie);
         });
+    }
+
+    @Test
+    void testEditMovie() throws Exception {
+        assertEquals(4, repo.getMovies().size());
+        repo.editMovie(new Movie(1, "test", 2020, "General"));
+
+        assertEquals(4, repo.getMovies().size());
+        assertEquals("test", repo.getMovies().stream().filter(x -> x.getTitle().equals("test")).findAny().get().getTitle());
+        Exception e = Assertions.assertThrows(NoSuchElementException.class, () -> {
+
+            repo.getMovies().stream().filter(x -> x.getTitle().equals("Speed fast")).findAny().get().getTitle();
+        });
+    }
+
+    @Test
+    void testGetMOvieByGenre() {
+        assertEquals(1, repo.getMOviesByGenre("Genre_1").size());
     }
 }
