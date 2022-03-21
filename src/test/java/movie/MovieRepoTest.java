@@ -1,6 +1,7 @@
 package movie;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.NoSuchElementException;
@@ -8,7 +9,13 @@ import java.util.NoSuchElementException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MovieRepoTest {
-    private MovieRepo repo = MovieRepo.getInstance();
+    private MovieRepo repo;
+
+    @BeforeEach
+    public void setup() {
+        repo = new MovieRepo();
+        repo.Init();
+    }
 
     @Test
     public void test() {
@@ -62,6 +69,7 @@ class MovieRepoTest {
     @Test
     void testEditMovie() throws Exception {
         assertEquals(4, repo.getMovies().size());
+
         repo.editMovie(new Movie(1, "test", 2020, "General"));
 
         assertEquals(4, repo.getMovies().size());
@@ -75,5 +83,22 @@ class MovieRepoTest {
     @Test
     void testGetMOvieByGenre() {
         assertEquals(1, repo.getMOviesByGenre("Genre_1").size());
+        assertEquals(3, repo.getMOviesByGenre("Genre_2").size());
+    }
+
+    @Test
+    void testGetMOvieByGenrStream() {
+        assertEquals(2, repo.getMOviesByGenreStream("Genre_1").size());
+        assertEquals(2, repo.getMOviesByGenreStream("Genre_2").size());
+    }
+
+    @Test
+    void testGetMoviesByDir() {
+        assertEquals(1, repo.getMViesByDirectories("Java").size());
+    }
+
+    @Test
+    void testGetMoviesByDirStream() {
+        assertEquals(1, repo.getMViesByDirectoriesStream("Java").size());
     }
 }
