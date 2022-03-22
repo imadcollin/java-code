@@ -1,18 +1,18 @@
 package movie;
 
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MovieDaoTest {
-    public static MovieDao movieDao;
-    public static MovieRepo repo;
+    public MovieDao movieDao;
+    public MovieRepo repo;
 
-    @BeforeAll
-    static void init() {
-        movieDao = new MovieDao();
+    @BeforeEach
+    public void setUp() {
         repo = new MovieRepo();
+        movieDao = new MovieDao();
     }
 
     @Test
@@ -25,12 +25,26 @@ class MovieDaoTest {
     @Test
     void testMoviesByDirecotrie2s() {
         assertEquals(8, movieDao.moviesByDirectories2().size());
-        assertEquals(2, movieDao.moviesByDirectories2().get("Pizza"));
-        assertEquals(3, movieDao.moviesByDirectories2().get("Java"));
+        assertEquals(1, movieDao.moviesByDirectories2().get("Pizza"));
+        assertEquals(1, movieDao.moviesByDirectories2().get("Java"));
     }
 
     @Test
     void testMovieByGenre() {
-        assertEquals(4, movieDao.genresByDir().size());
+        assertEquals(4, movieDao.genresByDGenre().size());
+    }
+
+    @Test
+    void testGetListOfGener() {
+        assertEquals(6, movieDao.getListOfGenre().size());
+        assertEquals("Genre_1", movieDao.getListOfGenre().get(0).getName());
+        assertEquals("Genre_2", movieDao.getListOfGenre().get(1).getName());
+    }
+
+    @Test
+    void testGetListOfDires() {
+        assertEquals(8, movieDao.getListOfDirecoties().size());
+        assertEquals("Pop", movieDao.getListOfDirecoties().get(0).getName());
+        assertEquals("Classic", movieDao.getListOfDirecoties().get(1).getName());
     }
 }

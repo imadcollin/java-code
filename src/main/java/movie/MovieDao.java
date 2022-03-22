@@ -1,17 +1,16 @@
 package movie;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class MovieDao {
     private MovieRepo repo;
 
     public MovieDao() {
         repo = new MovieRepo();
+        repo.Init();
     }
 
     //Find the number of movies of each director: Try to solve this problem by assuming that Director class has not the member movies.
@@ -33,16 +32,15 @@ public class MovieDao {
     }
 
     //Find the number of genres of each director's movies:
-    public Map<String, Long> genresByDir() {
-        return repo.getMovies().stream().map(x -> x.getGenres()).flatMap(List::stream).collect(Collectors.groupingBy(Genre::getName, Collectors.counting()));
+    public Map<String, Long> genresByDGenre() {
+        return repo.getMovies().stream().map(Movie::getGenres).flatMap(List::stream).collect(Collectors.groupingBy(Genre::getName, Collectors.counting()));
     }
 
-    public void di(){
-        List<Director> directors = repo.getListOFDir();
-        Stream<List<Genre>> c = directors.stream().map(director -> director.getMovies().stream().map(Movie::getGenres).
-                flatMap(Collection::stream).map(genre -> new Genre(director.getId(), genre.getName())).collect(Collectors.toList())
-        );
+    public List<Genre> getListOfGenre() {
+        return repo.getMovies().stream().map(Movie::getGenres).flatMap(List::stream).collect(Collectors.toList());
+    }
 
-                
+    public List<Director> getListOfDirecoties() {
+        return repo.getMovies().stream().map(Movie::getDirectors).flatMap(List::stream).collect(Collectors.toList());
     }
 }
