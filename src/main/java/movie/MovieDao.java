@@ -43,4 +43,9 @@ public class MovieDao {
     public List<Director> getListOfDirecoties() {
         return repo.getMovies().stream().map(Movie::getDirectors).flatMap(List::stream).collect(Collectors.toList());
     }
+
+    //Group the movies by the year and list them:
+public Map<Integer, String> moviesByYear(){
+    return repo.getMovies().stream().collect(Collectors.groupingBy(Movie::getYear, Collectors.mapping(Movie::getTitle, Collectors.joining(","))));
+}
 }

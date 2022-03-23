@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class MovieDaoTest {
     public MovieDao movieDao;
@@ -46,5 +47,12 @@ class MovieDaoTest {
         assertEquals(8, movieDao.getListOfDirecoties().size());
         assertEquals("Pop", movieDao.getListOfDirecoties().get(0).getName());
         assertEquals("Classic", movieDao.getListOfDirecoties().get(1).getName());
+    }
+
+    @Test
+    void testMoviesByYear() {
+        assertTrue(movieDao.moviesByYear().keySet().contains(2020));
+        assertTrue(movieDao.moviesByYear().keySet().contains(1900));
+        assertTrue(movieDao.moviesByYear().keySet().contains(1999));
     }
 }
