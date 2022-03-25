@@ -2,6 +2,7 @@ package ds;
 
 public class JavaSingelton {
     private static JavaSingelton instance = new JavaSingelton();
+    private static JavaSingelton lazyInstance = new JavaSingelton();
 
     public final static JavaSingelton getEagerInstance() {
         return instance;
@@ -21,6 +22,13 @@ public class JavaSingelton {
 
     }
 
+    public static JavaSingelton getLazyInstance() {
+        if (lazyInstance != null) {
+            return lazyInstance;
+        }
+        return new JavaSingelton();
+    }
+
     public static JavaSingelton get_static_instance() {
         return static_instance;
     }
@@ -31,5 +39,10 @@ public class JavaSingelton {
 
     protected int sub(int b, int a) {
         return (b - a > 0) ? b - a : 0;
+    }
+
+    protected String appendComma(String s) {
+        s = s.trim();
+        return s != null ? s.substring(0, s.length() - 1).concat(".") : "";
     }
 }
