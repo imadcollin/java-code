@@ -3,6 +3,7 @@ package ds;
 public class JavaSingelton {
     private static JavaSingelton instance = new JavaSingelton();
     private static JavaSingelton lazyInstance = new JavaSingelton();
+    private static JavaSingelton threadSafeInstance = new JavaSingelton();
 
     public final static JavaSingelton getEagerInstance() {
         return instance;
@@ -31,6 +32,13 @@ public class JavaSingelton {
 
     public static JavaSingelton get_static_instance() {
         return static_instance;
+    }
+
+    public static synchronized JavaSingelton getThreadSafeInstance() {
+        if (threadSafeInstance == null) {
+            threadSafeInstance = new JavaSingelton();
+        }
+        return threadSafeInstance;
     }
 
     protected int add(int a, int b) {
