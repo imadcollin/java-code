@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ApiMock {
     public static List<Product> getProductAsList() {
@@ -56,6 +57,10 @@ public class ApiMock {
         hashMap.put("Games", getProductAsList().stream().filter(x -> x.getCategory().equals("Games")).collect(Collectors.toList()));
         hashMap.put("Books", getProductAsList().stream().filter(x -> x.getCategory().equals("Books")).collect(Collectors.toList()));
         return hashMap.get(category);
+    }
+    public List<Order> getOrderesByCa(){
+        Stream<Order> s = getOrdersAsList().stream().filter(x -> x.getProducts().stream().anyMatch(y -> y.getCategory().equals("Toys")));
+    return null;
     }
 
 }
