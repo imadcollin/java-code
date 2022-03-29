@@ -47,6 +47,42 @@ public class RegexEx {
         assertFalse(Pattern.matches("[abc]*", "x"));
 
     }
+
+    @Test
+    void testStartMatch() {
+        assertTrue(Pattern.matches("[a-z]*", ""));
+        assertTrue(Pattern.matches("[a-z]*", "a"));
+        assertTrue(Pattern.matches("[a-z]*", "b"));
+        assertTrue(Pattern.matches("[a-z]*", "c"));
+        assertTrue(Pattern.matches("[a-z]*", "aa"));
+        assertTrue(Pattern.matches("[a-z]*", "bbbbbb"));
+        assertTrue(Pattern.matches("[a-z]*", "cccccccccc"));
+
+        assertTrue(Pattern.matches("[a-z]*", "w"));
+    }
+
+    @Test
+    void testDigits() {
+        assertTrue(Pattern.matches("\\d", "1"));
+        assertTrue(Pattern.matches("\\d", "2"));
+
+        assertFalse(Pattern.matches("\\d", "22222"));
+        assertTrue(Pattern.matches("\\D", "s"));
+        assertTrue(Pattern.matches("\\D*", "nondigit"));
+    }
+
+    @Test
+    void testCharMatch() {
+        String regex = "H.llo";
+        assertTrue(Pattern.matches(regex, "Hello"));
+        assertTrue(Pattern.matches(regex, "Hqllo"));
+        regex = "Hi\\D*";
+        assertTrue(Pattern.matches(regex, "Hii"));
+        assertTrue(Pattern.matches(regex, "Hiiiiiiii"));
+
+        assertFalse(Pattern.matches(regex, "Hi2"));
+        assertFalse(Pattern.matches(regex, "Hi123"));
+    }
 }
 
 
