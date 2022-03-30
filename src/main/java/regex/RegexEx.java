@@ -83,6 +83,46 @@ public class RegexEx {
         assertFalse(Pattern.matches(regex, "Hi2"));
         assertFalse(Pattern.matches(regex, "Hi123"));
     }
+
+    @Test
+    void commanMatches() {
+        assertTrue(Pattern.matches("Hello", "Hello"));
+        assertTrue(Pattern.matches("^Hello", "Hello"));
+        assertTrue(Pattern.matches("Hello$", "Hello"));
+        assertTrue(Pattern.matches("[H]", "H"));
+        assertTrue(Pattern.matches("[H]|[h]", "H"));
+        assertTrue(Pattern.matches("[H]|[h]", "h"));
+        assertTrue(Pattern.matches("[HELLO]|[hello]", "h"));
+        assertTrue(Pattern.matches("[HELLO]|[hello]", "O"));
+        assertTrue(Pattern.matches("o$|O$", "O"));
+        assertTrue(Pattern.matches("[o|O]$", "O"));
+    }
+
+    @Test
+    void testMatchCharacters() {
+        assertTrue(Pattern.matches("\\d", "5"));
+        assertTrue(Pattern.matches("\\D", "R"));
+        assertTrue(Pattern.matches("\\s", " "));
+
+        assertTrue(Pattern.matches("\\w", "H"));
+        assertTrue(Pattern.matches("\\w", "5"));
+        assertTrue(Pattern.matches("\\w", "_"));
+        assertTrue(Pattern.matches(".s", "xs"));
+        assertTrue(Pattern.matches("..s", "xas"));
+        assertTrue(Pattern.matches("...s", "aaas"));
+
+    }
+
+    @Test
+    void testMatchGrouping() {
+        String alpha = "([a-z]|[A-Z0-9]){6}";
+        assertTrue(Pattern.matches(alpha, "testaa"));
+        assertTrue(Pattern.matches(alpha, "test12"));
+
+        String num = "[789]{1}[0-9]{9}";
+        assertTrue(Pattern.matches(num, "7123456789"));
+        assertTrue(Pattern.matches(num, "7123456789"));
+    }
 }
 
 
