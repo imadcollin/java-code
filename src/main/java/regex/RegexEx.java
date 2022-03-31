@@ -123,6 +123,42 @@ public class RegexEx {
         assertTrue(Pattern.matches(num, "7123456789"));
         assertTrue(Pattern.matches(num, "7123456789"));
     }
+
+    @Test
+    void testEx1() {
+        // a string that has a p followed by zero or more q's
+        String regex = "pq*";
+        assertTrue(Pattern.matches(regex, "p"));
+        assertTrue(Pattern.matches(regex, "pq"));
+        assertTrue(Pattern.matches(regex, "pqqq"));
+    }
+
+    @Test
+    void testEx2() {
+        // find sequences of lowercase letters joined with a underscore
+        String regex = "[a-z]+_[a-z]+$";
+        assertTrue(Pattern.matches(regex, "a_b"));
+        assertTrue(Pattern.matches(regex, "test_test"));
+        assertTrue(Pattern.matches(regex, "pq_sscccc"));
+    }
+
+    @Test
+    void testEx3() {
+        //sequences of one upper case letter followed by lower case letters
+        String regex = "[A-Z]+[a-z]+$";
+        assertTrue(Pattern.matches(regex, "Ab"));
+        assertTrue(Pattern.matches(regex, "Ttest"));
+        assertTrue(Pattern.matches(regex, "Psscccc"));
+    }
+
+    @Test
+    void testEx4() {
+        //a string that has a 'p' followed by anything, ending in 'q
+        String regex = "p[A-Za-z_0-9]+g+$";
+        assertTrue(Pattern.matches(regex, "pA0bg"));
+        assertTrue(Pattern.matches(regex, "ptestg"));
+        assertTrue(Pattern.matches(regex, "pssccccg"));
+    }
 }
 
 
