@@ -159,6 +159,64 @@ public class RegexEx {
         assertTrue(Pattern.matches(regex, "ptestg"));
         assertTrue(Pattern.matches(regex, "pssccccg"));
     }
+
+    @Test
+    void testEx5() {
+        //a word contains the character 'g' in a given string
+        String regex = "\\w*g.\\w*";
+        assertTrue(Pattern.matches(regex, "ggg"));
+        assertTrue(Pattern.matches(regex, "google"));
+        assertTrue(Pattern.matches(regex, "long."));
+        assertTrue(Pattern.matches(regex, "game"));
+
+        assertFalse(Pattern.matches(regex, "long"));
+        assertFalse(Pattern.matches(regex, "g"));
+    }
+
+    @Test
+    void testEx6() {
+        //a word containing 'g', not at the start or end
+        String regex = "[^g]\\w*g.\\w*[^g]";
+        assertTrue(Pattern.matches(regex, "aaaaagaaa"));
+        assertTrue(Pattern.matches(regex, "bgbl"));
+        assertTrue(Pattern.matches(regex, "cccg.kk"));
+
+        assertFalse(Pattern.matches(regex, "g"));
+        assertFalse(Pattern.matches(regex, "game"));
+        assertFalse(Pattern.matches(regex, "long"));
+    }
+
+    @Test
+    void testEx6_2() {
+        //a word containing 'g', not at the start or end
+        String regex = "[^g]+g[^g]+";
+        assertTrue(Pattern.matches(regex, "aga"));
+        assertTrue(Pattern.matches(regex, "bgbl"));
+        assertTrue(Pattern.matches(regex, "cccg.kk"));
+
+        assertFalse(Pattern.matches(regex, "g"));
+        assertFalse(Pattern.matches(regex, "game"));
+        assertFalse(Pattern.matches(regex, "long"));
+
+    }
+
+    @Test
+    void testEx7() {
+        //contains only upper and lowercase letters, numbers, and underscores
+        String regex = "[a-zA-Z0-9_]*$";
+        assertTrue(Pattern.matches(regex, "A"));
+        assertTrue(Pattern.matches(regex, "ABC"));
+        assertTrue(Pattern.matches(regex, "A11"));
+        assertTrue(Pattern.matches(regex, "123"));
+        assertTrue(Pattern.matches(regex, "1_"));
+        assertTrue(Pattern.matches(regex, "_"));
+
+        assertFalse(Pattern.matches(regex, "%"));
+        assertFalse(Pattern.matches(regex, "#"));
+        assertFalse(Pattern.matches(regex, "12¤"));
+        assertFalse(Pattern.matches(regex, "*"));
+
+    }
 }
 
 
