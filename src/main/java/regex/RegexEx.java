@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.regex.Pattern;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class RegexEx {
 
@@ -215,6 +214,49 @@ public class RegexEx {
         assertFalse(Pattern.matches(regex, "#"));
         assertFalse(Pattern.matches(regex, "12¤"));
         assertFalse(Pattern.matches(regex, "*"));
+
+    }
+
+    @Test
+    void testEx8() {
+        //string starts with a  number.
+        String regex = "\\d[a-zA-AZ]+";
+        assertTrue(Pattern.matches(regex, "2a"));
+        assertTrue(Pattern.matches(regex, "2xxxx"));
+
+        assertFalse(Pattern.matches(regex, "22xxxx"));
+        assertFalse(Pattern.matches(regex, "x"));
+        assertFalse(Pattern.matches(regex, "x2222"));
+
+        //string starts with a specific  number.
+        regex = "^5.*$";
+        assertTrue(Pattern.matches(regex, "5-123456"));
+        assertTrue(Pattern.matches(regex, "5-12"));
+        assertTrue(Pattern.matches(regex, "5-xxxx"));
+        assertTrue(Pattern.matches(regex, "5xxxx"));
+        assertTrue(Pattern.matches(regex, "55555xxxx"));
+
+        assertFalse(Pattern.matches(regex, "xxxx"));
+        assertFalse(Pattern.matches(regex, "6-2222"));
+        assertFalse(Pattern.matches(regex, "7-2222"));
+        assertFalse(Pattern.matches(regex, "6"));
+
+    }
+
+    @Test
+    void testEx9() {
+        //Remove zeros
+        String regex = "0";
+        assertEquals("123", "102030".replaceAll(regex, ""));
+        assertEquals("145", "10450".replaceAll(regex, ""));
+        assertEquals("112", "1012".replaceAll(regex, ""));
+
+        assertNotEquals("0124", "0124".replaceAll(regex, ""));
+
+        //Remove leading zeros from a given IP address
+        regex = "(?<=^|\\.)0+(?!\\.|$)";
+
+        assertEquals("10012", "10012".replaceAll(regex, ""));
 
     }
 }
