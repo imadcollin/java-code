@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.regex.Pattern;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class RegexEx {
 
@@ -216,6 +215,55 @@ public class RegexEx {
         assertFalse(Pattern.matches(regex, "12¤"));
         assertFalse(Pattern.matches(regex, "*"));
 
+    }
+
+    @Test
+    void testEx8() {
+        //check for a number at the end of a given string
+        String regex = "\\w+[0-9]";
+        assertTrue(Pattern.matches(regex, "a2"));
+        assertTrue(Pattern.matches(regex, "abc2"));
+        assertTrue(Pattern.matches(regex, "abcwd3222"));
+        assertTrue(Pattern.matches(regex, "abcccc2"));
+        assertTrue(Pattern.matches(regex, "123"));
+
+        assertFalse(Pattern.matches(regex, "a"));
+        assertFalse(Pattern.matches(regex, "abc"));
+        assertFalse(Pattern.matches(regex, "a"));
+
+        String rege2x = ".*[0-9]$";
+        assertTrue(Pattern.matches(regex, "a2"));
+        assertTrue(Pattern.matches(regex, "abc2"));
+        assertTrue(Pattern.matches(regex, "abcwd3222"));
+        assertTrue(Pattern.matches(regex, "abcccc2"));
+        assertTrue(Pattern.matches(regex, "123"));
+
+        assertFalse(Pattern.matches(regex, "a"));
+        assertFalse(Pattern.matches(regex, "abc"));
+        assertFalse(Pattern.matches(regex, "a"));
+    }
+
+    @Test
+    void testEx9() {
+        // replace Python with Java and code with coding in a given string
+        assertEquals("Java is a coding language", "Python is a code language".replace("Python", "Java").replace("code", "coding"));
+        assertEquals("Java is a perfect coding language", "Python is a good code language".replace("Python", "Java").replace("code", "coding").replace("good", "perfect"));
+
+    }
+
+    @Test
+    void testEx10() {
+        //find the word Python in a given string,
+        assertTrue(validate("This string contain a word ", "word"));
+        assertTrue(validate("This word is in ", "word"));
+
+        assertFalse(validate("This string  without ", "word"));
+    }
+
+    private boolean validate(String str, String word) {
+        if (word != null && str != null)
+            return str.toLowerCase().contains(word.toLowerCase());
+        return false;
     }
 }
 
