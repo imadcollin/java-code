@@ -216,6 +216,18 @@ public class RegexEx {
         assertFalse(Pattern.matches(regex, "*"));
 
     }
+
+    @Test
+    void tsetEx8() {
+        // insert a dash (-) between an upper case letter and a lower case letter
+        String regex = "(?<=[A-Z])(?=[a-z])";
+        assertEquals("S-ome text", "Some text".replaceAll("(?<=[A-Z])(?=[a-z])", "-"));
+        assertEquals("S-omE text", "SomE text".replaceAll("(?<=[A-Z])(?=[a-z])", "-"));
+        assertEquals("SO-me text", "SOme text".replaceAll("(?<=[A-Z])(?=[a-z])", "-"));
+
+
+        assertEquals("SO-me text", "SOme text".replaceAll("(?<=[A-Z])(?=[a-z])", "-"));
+    }
 }
 
 
