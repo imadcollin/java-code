@@ -2,6 +2,7 @@ package regex;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -227,6 +228,46 @@ public class RegexEx {
 
 
         assertEquals("SO-me text", "SOme text".replaceAll("(?<=[A-Z])(?=[a-z])", "-"));
+    }
+
+    @Test
+    void testA1() {
+        Pattern pattern = Pattern.compile("foo");
+        Matcher matcher = pattern.matcher("foofoo");
+        int count = -1;
+        do {
+            count++;
+        } while (matcher.find());
+        assertEquals(2, count);
+    }
+
+    @Test
+    void testA2() {
+
+        assertEquals(2, matches("foo", "foofoo"));
+    }
+
+    @Test
+    void testA3() {
+
+        assertEquals(1, matches("[abc]", "foocfoo"));
+        assertEquals(2, matches("[abc]", "afoocfoo"));
+        assertEquals(3, matches("[abc]", "abfoocfoo"));
+
+        assertEquals(2, matches("[^abc]", "gcd"));
+        assertEquals(3, matches("[^a]", "bcd"));
+        assertEquals(3, matches("[^abc]", "eee"));
+    }
+
+
+    private int matches(String regex, String text) {
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(text);
+        int count = -1;
+        do {
+            count++;
+        } while (matcher.find());
+        return count;
     }
 }
 
