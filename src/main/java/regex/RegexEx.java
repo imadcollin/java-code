@@ -259,6 +259,42 @@ public class RegexEx {
         assertEquals(3, matches("[^abc]", "eee"));
     }
 
+    @Test
+    void testA4() {
+        assertEquals(6, matches("[1-3[7-9]]", "123456789"));
+        assertEquals(5, matches("[1-3[8-9]]", "123456789"));
+        assertEquals(1, matches("[1-3[2-5]]", "46789"));
+    }
+
+    @Test
+    void testA5() {
+        assertEquals(3, matches("[1-3&&[^78]]", "123456789"));
+        assertEquals(3, matches("[1-9&&[345]]", "123456789"));
+    }
+
+    @Test
+    void test_is_digit() {
+        assertEquals(3, matches("\\d", "123cde"));
+        assertEquals(5, matches("\\d", "abd56789"));
+    }
+
+    @Test
+    void test_is_not_digit() {
+        assertEquals(3, matches("\\D", "123456789abs"));
+        assertEquals(4, matches("\\D", "123abcd"));
+    }
+
+    @Test
+    void test_is_space() {
+        assertEquals(1, matches("\\s", "123456 789abs"));
+        assertEquals(2, matches("\\s", "123  abcd"));
+    }
+
+    @Test
+    void test_is_not_space() {
+        assertEquals(12, matches("\\S", "123456 789abs"));
+        assertEquals(7, matches("\\S", "123  abcd"));
+    }
 
     private int matches(String regex, String text) {
         Pattern pattern = Pattern.compile(regex);
