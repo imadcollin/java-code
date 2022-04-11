@@ -296,6 +296,28 @@ public class RegexEx {
         assertEquals(7, matches("\\S", "123  abcd"));
     }
 
+    @Test
+    void test_grouping() {
+        assertEquals(1, matches("\\d\\d", "12"));
+        assertEquals(2, matches("\\d\\d", "1212"));
+        assertEquals(3, matches("\\d\\d", "121212"));
+        assertEquals(1, matches("\\d\\d", "12xw"));
+        assertEquals(2, matches("\\d\\d", "12xw22"));
+    }
+
+    @Test
+    void test_grouping_ref() {
+        assertEquals(1, matches("(\\d\\d)\\d", "121"));
+
+
+        assertEquals(1, matches("(\\d\\d)(\\d\\d)", "1212"));
+        assertEquals(1, matches("(\\d\\d)(\\d\\d)(\\d)", "12121"));
+        assertEquals(1, matches("\\d", "1www"));
+        assertEquals(2, matches("\\d\\d", "1212xw"));
+
+    }
+
+
     private int matches(String regex, String text) {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(text);
