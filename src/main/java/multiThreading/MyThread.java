@@ -1,11 +1,15 @@
 package multiThreading;
 
-public class JavaThreads implements Runnable {
+public class MyThread extends Thread {
     public static int counter = 0;
+
+    public MyThread(String name) {
+        super(name);
+    }
 
     @Override
     public void run() {
-        System.out.println("Thread is running ..... " + Thread.currentThread().getName());
+        System.out.println("Thread is running ..... ");
         try {
             Thread.sleep(1000);
             addOne();
@@ -22,6 +26,4 @@ public class JavaThreads implements Runnable {
         System.out.println("Counter is:" + counter);
         counter++;
     }
-
-
 }
