@@ -5,7 +5,7 @@ public class JavaThreads implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("Thread is running ..... " + Thread.currentThread().getName());
+        System.out.println("Thread is started:" + Thread.currentThread().getName());
         try {
             Thread.sleep(1000);
             addOne();
@@ -14,7 +14,7 @@ public class JavaThreads implements Runnable {
         } catch (InterruptedException interruptedException) {
             System.out.println(interruptedException.getMessage());
         }
-        System.out.println("Thread is working  ..... Name:  " + Thread.currentThread().getName());
+        System.out.println("Thread is Ended:  " + Thread.currentThread().getName());
 
     }
 
