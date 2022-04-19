@@ -2,11 +2,12 @@ package multiThreading.queue;
 
 import java.util.Objects;
 import java.util.concurrent.BlockingDeque;
+import java.util.concurrent.BlockingQueue;
 
 public class Consumer implements Runnable {
-    private BlockingDeque<Messages> queue;
+    private BlockingQueue<Messages> queue;
 
-    public Consumer(BlockingDeque<Messages> q) {
+    public Consumer(BlockingQueue<Messages> q) {
         this.queue = q;
     }
 

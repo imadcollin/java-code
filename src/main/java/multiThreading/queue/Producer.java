@@ -2,13 +2,14 @@ package multiThreading.queue;
 
 import java.util.List;
 import java.util.concurrent.BlockingDeque;
+import java.util.concurrent.BlockingQueue;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Producer implements Runnable {
-    private BlockingDeque<Messages> queue;
+    private BlockingQueue<Messages> queue;
 
-    public Producer(BlockingDeque<Messages> q) {
+    public Producer(BlockingQueue<Messages> q) {
         this.queue = q;
     }
 
