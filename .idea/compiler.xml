@@ -7,7 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="javawar" />
-        <module name="java-code" />
+        <module name="servernet" />
       </profile>
     </annotationProcessing>
   </component>
