@@ -14,10 +14,10 @@ public class PoolWorker implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("Thread Started:" + Thread.currentThread().getName());
+        System.out.println("Thread Started:" + Thread.currentThread().getName()+"->"+command);
 
         doStuff();
-        System.out.println("Thread Ended:" + Thread.currentThread().getName());
+        System.out.println("Thread Ended");
 
     }
 

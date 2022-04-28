@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         ExecutorService executorService = Executors.newFixedThreadPool(5);
         for (int i = 0; i < 10; i++) {
-            PoolWorker poolWorker = new PoolWorker("" + 1);
+            PoolWorker poolWorker = new PoolWorker("" + i);
             executorService.execute(poolWorker);
         }
         executorService.shutdown();
