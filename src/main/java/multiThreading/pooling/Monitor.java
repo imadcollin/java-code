@@ -19,15 +19,14 @@ public class Monitor implements Runnable {
     @Override
     public void run() {
         while (run) {
-            System.out.println(
-                    String.format("[monitor] [%d/%d] Active: %d, Completed: %d, Task: %d, isShutdown: %s, isTerminated: %s",
-                            this.executor.getPoolSize(),
-                            this.executor.getCorePoolSize(),
-                            this.executor.getActiveCount(),
-                            this.executor.getCompletedTaskCount(),
-                            this.executor.getTaskCount(),
-                            this.executor.isShutdown(),
-                            this.executor.isTerminated()));
+            System.out.printf("[monitor] [%d/%d] Active: %d, Completed: %d, Task: %d, isShutdown: %s, isTerminated: %s%n",
+                    this.executor.getPoolSize(),
+                    this.executor.getCorePoolSize(),
+                    this.executor.getActiveCount(),
+                    this.executor.getCompletedTaskCount(),
+                    this.executor.getTaskCount(),
+                    this.executor.isShutdown(),
+                    this.executor.isTerminated());
         }
         try {
             Thread.sleep(second / 1000);
