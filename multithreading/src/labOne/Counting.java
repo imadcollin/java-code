@@ -7,7 +7,6 @@ public class Counting extends Thread {
     public void run() {
         try {
             Thread.sleep(1000);
-            System.out.println(Thread.currentThread().getName());
             increment();
         } catch (InterruptedException e) {
             System.out.println(e.getMessage());
@@ -25,17 +24,25 @@ public class Counting extends Thread {
 
     public static void main(String[] args) {
         Counting c1 = new Counting();
-        Counting c2 = new Counting();
-        c1.start();
-        c2.start();
+        c1.increment();
+        c1.increment();
+
+        System.out.printf("Sequentially: %d", c1.getCount());
+
+        System.out.println("\n----------------");
+        Counting counting = new Counting();
+        Thread t1 = new Thread(counting);
+        Thread t2 = new Thread(counting);
+        t1.start();
+        t2.start();
         try {
 
-            c1.join();
-            c2.join();
+            t1.join();
+            t2.join();
         } catch (InterruptedException e) {
             System.out.println(e.getMessage());
         }
-        System.out.println(c1.getCount());
-        System.out.println(c2.getCount());
+        System.out.printf("Concurrent: %d", counting.getCount());
+
     }
 }
