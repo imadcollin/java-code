@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="javawar" />
         <module name="servernet" />
+        <module name="multithreading" />
       </profile>
     </annotationProcessing>
   </component>
