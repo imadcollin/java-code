@@ -34,4 +34,20 @@ public class Philosophers implements Runnable {
         Thread.sleep(100);
     }
 
+    public static void main(String[] args) {
+        Philosophers[] philosophersList = new Philosophers[5];
+        Object[] objs = new Object[5];
+        for (int i = 0; i < objs.length; i++) {
+            objs[i] = new Object();
+        }
+        for (int i = 0; i < philosophersList.length; i++) {
+            System.out.println("test...");
+            Object left = objs[i];
+            Object right = objs[(i + 1) % objs.length];
+            philosophersList[i] = new Philosophers(left, right);
+            Thread t = new Thread(philosophersList[i], "PHilosopher " + (i + 1));
+            t.start();
+        }
+    }
+
 }
