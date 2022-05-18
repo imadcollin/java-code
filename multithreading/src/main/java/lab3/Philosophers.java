@@ -44,7 +44,11 @@ public class Philosophers implements Runnable {
             System.out.println("test...");
             Object left = objs[i];
             Object right = objs[(i + 1) % objs.length];
-            philosophersList[i] = new Philosophers(left, right);
+            if (i == philosophersList.length - 1)
+                philosophersList[i] = new Philosophers(right, left);
+            else
+                philosophersList[i] = new Philosophers(left, right);
+
             Thread t = new Thread(philosophersList[i], "PHilosopher " + (i + 1));
             t.start();
         }
