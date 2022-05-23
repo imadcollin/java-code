@@ -17,7 +17,7 @@ public class MemoryError {
         });
         thread.start();
         Thread.sleep(100);
-        msg = true;
+        msg = false;
         System.out.println("msg good");
         Thread.sleep(100);
         System.out.println("msg bye");
