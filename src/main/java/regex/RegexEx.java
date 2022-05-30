@@ -219,6 +219,22 @@ public class RegexEx {
     }
 
     @Test
+    void tsetExHyphen() {
+        // insert a dash (-) between an upper case letter and a lower case letter
+//        String regex = "^[a-zA-Z0-9]+(?:-?[a-zA-Z0-9]+)+$";
+        //  assertTrue(Pattern.matches(regex, "Aall"));
+        String regex = "[a-zA-Z0-9]+\\-+[a-zA-Z0-9]+";
+        assertTrue(Pattern.matches(regex, "Aall-test"));
+        assertTrue(Pattern.matches(regex, "Aall-test-test"));
+        assertTrue(Pattern.matches(regex, "Aall-test-test"));
+        assertFalse(Pattern.matches(regex, "-Aall-test-test"));
+        assertFalse(Pattern.matches(regex, "Aall-test-test-"));
+        assertFalse(Pattern.matches(regex, "Aall-test--test"));
+
+
+    }
+
+    @Test
     void tsetEx8() {
         // insert a dash (-) between an upper case letter and a lower case letter
         String regex = "(?<=[A-Z])(?=[a-z])";
@@ -229,6 +245,7 @@ public class RegexEx {
 
         assertEquals("SO-me text", "SOme text".replaceAll("(?<=[A-Z])(?=[a-z])", "-"));
     }
+
 
     @Test
     void testA1() {
@@ -327,6 +344,8 @@ public class RegexEx {
         } while (matcher.find());
         return count;
     }
+
+
 }
 
 
