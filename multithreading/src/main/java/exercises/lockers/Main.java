@@ -6,5 +6,9 @@ public class Main {
         Worker w = new Worker();
         w.main();
 
+        System.out.println("Synched method");
+        Syncaer syncaer = new Syncaer();
+        syncaer.main();
+
     }
 }
