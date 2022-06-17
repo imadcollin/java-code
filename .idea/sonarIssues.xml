@@ -23,6 +23,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/multithreading/src/main/java/exercises/Tasker.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/multithreading/src/main/java/exercises/lockers/ReadWriteLock.java">
           <value>
             <set />
