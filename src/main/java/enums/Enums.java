@@ -16,12 +16,7 @@ public class Enums {
 
     public static void main(String[] args) {
         Days d = Days.Mon;
-        System.out.println(d.name());
-        System.out.println(d.swedish);
 
-        plusDays(d.swedish);
-        System.out.println(plusDays(d.swedish));
-);
 
     }
 
