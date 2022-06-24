@@ -38,6 +38,22 @@ public class WarmUp {
                 (Math.abs(200 - n) <= 10));
     }
 
+    public String missingChar(String str, int n) {
+
+        if (str == null && str.length() <= 0) {
+            return "An empty string";
+        }
+        char a = str.charAt(n);
+        return str.replace(String.valueOf(a), "");
+    }
+
+    public String missingChar2(String str, int n) {
+        if (str == null && str.trim().length() <= 0) {
+            return "An empty string";
+        }
+
+        return str.substring(0, n) + str.substring(n + 1);
+    }
 
     @Test
     public void testSleepIn() {
@@ -76,4 +92,17 @@ public class WarmUp {
 
     }
 
+    @Test
+    public void testMissingChar() {
+        assertEquals(missingChar("kitten", 1), "ktten");
+        assertEquals(missingChar("kitten", 0), "itten");
+        assertEquals(missingChar("kitten", 4), "kittn");
+    }
+
+    @Test
+    public void testMissingChar2() {
+        assertEquals(missingChar2("kitten", 1), "ktten");
+        assertEquals(missingChar2("kitten", 0), "itten");
+        assertEquals(missingChar2("kitten", 4), "kittn");
+    }
 }
