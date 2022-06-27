@@ -55,6 +55,37 @@ public class WarmUp {
         return str.substring(0, n) + str.substring(n + 1);
     }
 
+    public String backAround(String str) {
+        if (str != null && str.trim().length() > 0) {
+            char last = str.charAt(str.length() - 1);
+            return String.valueOf(last) + str + String.valueOf(last);
+        }
+        return "An empty string";
+    }
+
+    public String backAround2(String str) {
+        if (str != null && str.trim().length() > 0) {
+            return str.substring(str.length() - 1) + str + str.substring(str.length() - 1);
+        }
+        return "An empty string";
+    }
+
+    public boolean startHi(String str) {
+        if (str != null && str.trim().length() >= 2) {
+            // return str.startsWith("hi");
+            return str.substring(0, 2).equals("hi");
+        }
+
+        return false;
+    }
+
+    public boolean mixStart(String str) {
+        if (str != null && str.trim().length() > 2)
+            return str.substring(1, 3).equals("ix");
+        return false;
+    }
+
+
     @Test
     public void testSleepIn() {
         assertEquals(sleepIn(false, false), true);
@@ -105,4 +136,34 @@ public class WarmUp {
         assertEquals(missingChar2("kitten", 0), "itten");
         assertEquals(missingChar2("kitten", 4), "kittn");
     }
+
+    @Test
+    public void testLastAroound() {
+        assertEquals(backAround("and"), "dandd");
+        assertEquals(backAround("abc"), "cabcc");
+        assertEquals(backAround("kitten"), "nkittenn");
+    }
+
+    @Test
+    public void testLastAroound2() {
+        assertEquals(backAround2("and"), "dandd");
+        assertEquals(backAround2("abc"), "cabcc");
+        assertEquals(backAround2("kitten"), "nkittenn");
+    }
+
+    @Test
+    public void testStartWith() {
+        assertEquals(startHi("hi there"), true);
+        assertEquals(startHi("hi"), true);
+        assertEquals(startHi("hello hi "), false);
+    }
+
+    @Test
+    public void testMixStart() {
+        assertEquals(mixStart("mix snacks"), true);
+        assertEquals(mixStart("pix snacks"), true);
+        assertEquals(mixStart("piz snacks"), false);
+    }
+
+
 }
