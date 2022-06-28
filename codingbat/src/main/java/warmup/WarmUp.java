@@ -85,6 +85,20 @@ public class WarmUp {
         return false;
     }
 
+    public String everyNth(String str, int n) {
+        StringBuilder newStr = new StringBuilder(str);
+        if (str != null && str.trim().length() > 0) {
+
+            if (n < str.length()) {
+
+                for (int i = n; i < newStr.length() - 1; i = i + n) {
+                    if (i < newStr.length() - 1)
+                        newStr.deleteCharAt(i);
+                }
+            }
+        }
+        return newStr.toString();
+    }
 
     @Test
     public void testSleepIn() {
@@ -165,5 +179,11 @@ public class WarmUp {
         assertEquals(mixStart("piz snacks"), false);
     }
 
+    @Test
+    public void testnth() {
+        assertEquals(everyNth("mix snacks", 1), "mxsaks");
+        assertEquals(everyNth("mix snacks", 2), "mi sacs");
+        assertEquals(everyNth("mix snacks", 3), "mixsnaks");
+    }
 
 }
