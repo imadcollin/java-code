@@ -100,6 +100,23 @@ public class WarmUp {
         return newStr.toString();
     }
 
+    public boolean monkeyTrouble(boolean aSmile, boolean bSmile) {
+        return (aSmile && bSmile) || (!aSmile && !bSmile);
+    }
+
+    public boolean monkeyTrouble2(boolean aSmile, boolean bSmile) {
+        return aSmile == bSmile;
+    }
+
+    public boolean parrotTrouble(boolean talking, int hour) {
+        if (talking) {
+
+            if (hour < 7 || hour > 20) return true;
+        }
+        return false;
+    }
+
+
     @Test
     public void testSleepIn() {
         assertEquals(sleepIn(false, false), true);
@@ -186,4 +203,24 @@ public class WarmUp {
         assertEquals(everyNth("mix snacks", 3), "mixsnaks");
     }
 
+    @Test
+    public void testMonkey() {
+        assertEquals(monkeyTrouble(true, true), true);
+        assertEquals(monkeyTrouble(false, false), true);
+        assertEquals(monkeyTrouble(true, false), false);
+    }
+
+    @Test
+    public void testMonkey2() {
+        assertEquals(monkeyTrouble2(true, true), true);
+        assertEquals(monkeyTrouble2(false, false), true);
+        assertEquals(monkeyTrouble2(true, false), false);
+    }
+
+    @Test
+    public void testParot() {
+        assertEquals(parrotTrouble(true, 14), false);
+        assertEquals(parrotTrouble(true, 3), true);
+        assertEquals(parrotTrouble(true, 12), false);
+    }
 }
