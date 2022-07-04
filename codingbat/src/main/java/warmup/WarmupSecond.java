@@ -46,6 +46,25 @@ public class WarmupSecond {
         return s;
     }
 
+    public boolean icyHot(int temp1, int temp2) {
+        boolean cond1 = (temp1 < 0) && (temp2 > 100);
+        boolean cond2 = (temp2 < 0) && (temp1 > 100);
+        return cond1 || cond2;
+    }
+
+    public String startOz(String str) {
+        String s = "";
+
+        if (str.length() == 1) {
+            if (str.charAt(0) == 'o') return s += 'o';
+        }
+        if (str.length() >= 2) {
+            if (str.charAt(0) == 'o') s += 'o';
+            if (str.charAt(1) == 'z') s += 'z';
+            return s;
+        }
+        return "";
+    }
 
     @Test
     void testPosNeg() {
@@ -73,5 +92,20 @@ public class WarmupSecond {
         assertEquals("asdf", reverse("fdsa"));
         assertEquals("asdf", reverse("fdsa"));
         assertEquals("welcome", reverse("emoclew"));
+    }
+
+    @Test
+    void testIceHo() {
+        assertEquals(true, icyHot(120, -1));
+        assertEquals(true, icyHot(-1, 120));
+        assertEquals(false, icyHot(2, 120));
+    }
+
+    @Test
+    void testOZ() {
+        assertEquals("oz", startOz("ozymandias"));
+        assertEquals("z", startOz("bzoo"));
+        assertEquals("o", startOz("oxx"));
+
     }
 }
