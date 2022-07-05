@@ -66,6 +66,22 @@ public class WarmupSecond {
         return "";
     }
 
+    public boolean in3050(int a, int b) {
+
+        boolean cond1 = (a >= 30 && a <= 40) && (b >= 30 && b <= 40);
+        boolean cond2 = (a >= 40 && a <= 50) && (b >= 40 && b <= 50);
+        return cond1 || cond2;
+    }
+
+    public int intMax(int a, int b, int c) {
+        int max = a;
+        if (b > a)
+            max = b;
+        if (c > max)
+            max = c;
+        return max;
+    }
+
     @Test
     void testPosNeg() {
         assertEquals(posNeg(1, -1, false), true);
@@ -106,6 +122,23 @@ public class WarmupSecond {
         assertEquals("oz", startOz("ozymandias"));
         assertEquals("z", startOz("bzoo"));
         assertEquals("o", startOz("oxx"));
+
+    }
+
+
+    @Test
+    void testIn() {
+        assertEquals(true, in3050(30, 31));
+        assertEquals(false, in3050(30, 41));
+        assertEquals(true, in3050(40, 50));
+
+    }
+
+    @Test
+    void testIntMax() {
+        assertEquals(3, intMax(1, 2, 3));
+        assertEquals(3, intMax(1, 3, 2));
+        assertEquals(3, intMax(3, 2, 1));
 
     }
 }
