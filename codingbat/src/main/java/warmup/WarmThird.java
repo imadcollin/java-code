@@ -2,6 +2,8 @@ package warmup;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class WarmThird {
@@ -100,6 +102,9 @@ public class WarmThird {
         return s;
     }
 
+    public int getCount(int[] nums) {
+        return (int) Arrays.stream(nums).filter(x -> x == 9).count();
+    }
 
     @Test
     void testDouble() {
@@ -127,6 +132,80 @@ public class WarmThird {
         assertEquals("H", stringBits("Hi"));
         assertEquals("ace", stringBits("abcdef"));
     }
+
+    @Test
+    void testCount() {
+        assertEquals(2, getCount(new int[]{1, 9, 9, 3}));
+        assertEquals(1, getCount(new int[]{1, 9, 3}));
+        assertEquals(4, getCount(new int[]{9, 1, 9, 9, 3, 9}));
+    }
+
+    public int stringMatch(String a, String b) {
+
+        int count = 0;
+        if (a.contains(b)) return 1;
+        for (int i = 0; i < a.length(); i++) {
+            String match = "" + a.charAt(i);
+            while (b.length() > i) {
+                if (b.contains(match)) {
+                    i++;
+                    match += a.charAt(i);
+                }
+            }
+
+            count++;
+
+        }
+        return count;
+    }
+
+    @Test
+    void tetstSub() {
+        String s = "abc";
+        assertEquals(1, stringMatch("ab", "ab"));
+        assertEquals(1, stringMatch("aabb", "ab"));
+        assertEquals(1, stringMatch("a", "a"));
+        assertEquals(2, stringMatch("abcbc", "bc"));
+        assertEquals(1, stringMatch("a", "a"));
+    }
+
+    public String stringYak(String str) {
+        if (str == null || str.length() == 0) return "";
+        if (str.contains("yak"))
+            return str.replace("yak", "");
+        return str;
+
+    }
+
+    @Test
+    void testStrubgYaj() {
+        assertEquals(stringYak("yakpak"), "pak");
+        assertEquals(stringYak("pakyak"), "pak");
+        assertEquals(stringYak("yak123ya"), "123ya");
+    }
+
+    public int countXX(String str) {
+        int count = 0;
+        int ws = 0;
+        if (str == null || str.length() == 0) return 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (Character.isWhitespace(str.charAt(i))) {
+                ws++;
+            }
+            if (str.charAt(i) == 'x')
+                count++;
+        }
+        if (count != 0) count = count - ws;
+        return count > 1 ? count - 1 : count;
+    }
+
+    @Test
+    void testCountXX() {
+        assertEquals(countXX("abcxx"), 1);
+        assertEquals(countXX("xxx"), 2);
+        assertEquals(countXX("xxxx"), 3);
+    }
+
 }
 
 
