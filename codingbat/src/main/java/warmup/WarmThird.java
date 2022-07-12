@@ -206,6 +206,45 @@ public class WarmThird {
         assertEquals(countXX("xxxx"), 3);
     }
 
+
+    public int array667(int[] nums) {
+        if (nums.length == 0) return 0;
+        int count = 0;
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] == 6 && (nums[i + 1] == 6 || nums[i + 1] == 7)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    @Test
+    void testArray667() {
+
+        assertEquals(1, array667(new int[]{6, 6, 2}));
+        assertEquals(1, array667(new int[]{6, 6, 2, 6}));
+        assertEquals(1, array667(new int[]{6, 7, 2, 6}));
+    }
+
+    public String stringX(String str) {
+        if (str == null || str.length() == 0) return "";
+        if (str.length() == 1) {
+            return str;
+        }
+        String f = str.substring(0, 1);
+        String e = str.substring(str.length() - 1, str.length());
+        String newStr = str.substring(1, str.length() - 1).replaceAll("x", "");
+        return f + newStr + e;
+
+    }
+
+    @Test
+    void testXX() {
+        assertEquals(stringX("xxHxix"), "xHix");
+        assertEquals(stringX("abxxxcd"), "abcd");
+        assertEquals(stringX("xabxxxcdx"), "xabcdx");
+    }
 }
+
 
 
