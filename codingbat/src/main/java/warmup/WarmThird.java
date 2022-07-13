@@ -244,6 +244,37 @@ public class WarmThird {
         assertEquals(stringX("abxxxcd"), "abcd");
         assertEquals(stringX("xabxxxcdx"), "xabcdx");
     }
+
+    public boolean arrayFront9(int[] nums) {
+        int count = 0;
+        boolean c = false;
+        while (nums.length - 1 >= count && count < 4) {
+            if (nums[count] == 9) {
+                return true;
+            }
+            count++;
+        }
+        return c;
+    }
+
+    @Test
+    void testArrayFront() {
+        assertEquals(arrayFront9(new int[]{1, 2, 3, 9, 5, 6}), true);
+        assertEquals(arrayFront9(new int[]{9, 2, 3}), true);
+        assertEquals(arrayFront9(new int[]{9, 2, 3, 3, 2}), true);
+        assertEquals(arrayFront9(new int[]{1, 9}), true);
+    }
+
+    public double average(int[] nums) {
+        return (double) Arrays.stream(nums).average().getAsDouble();
+    }
+
+    @Test
+    void testAvg() {
+        assertEquals(3, average(new int[]{1, 2, 3, 6}));
+        assertEquals(2, average(new int[]{1, 2, 3}));
+        assertEquals(5, average(new int[]{5, 5, 5, 5, 5}));
+    }
 }
 
 
