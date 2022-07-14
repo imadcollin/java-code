@@ -3,6 +3,8 @@ package warmup;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -274,6 +276,31 @@ public class WarmThird {
         assertEquals(3, average(new int[]{1, 2, 3, 6}));
         assertEquals(2, average(new int[]{1, 2, 3}));
         assertEquals(5, average(new int[]{5, 5, 5, 5, 5}));
+    }
+
+    public int doubleCast(double x) {
+        return (int) x;
+    }
+
+    @Test
+    void testCasting() {
+        assertEquals(3, doubleCast(3.4));
+        assertEquals(3, doubleCast(3.14));
+        assertEquals(45, doubleCast(45.4));
+    }
+
+    public List<Integer> doubling(List<Integer> numd) {
+
+        return numd.stream().map(x -> x * 2).collect(Collectors.toList());
+    }
+
+    @Test
+    void testDobling() {
+        List<Integer> integerList = Arrays.asList(1, 2, 3, 4, 4);
+        assertEquals(2, doubling(integerList).get(0));
+        assertEquals(4, doubling(integerList).get(1));
+        assertEquals(6, doubling(integerList).get(2));
+        assertEquals(8, doubling(integerList).get(3));
     }
 }
 
