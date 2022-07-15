@@ -2,6 +2,7 @@ package warmup;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -301,6 +302,34 @@ public class WarmThird {
         assertEquals(4, doubling(integerList).get(1));
         assertEquals(6, doubling(integerList).get(2));
         assertEquals(8, doubling(integerList).get(3));
+    }
+
+    public List<String> copies3(List<String> strings) {
+        List<String> stringList = new ArrayList<>();
+        for (String s : strings
+        ) {
+            s += s + s;
+            stringList.add(s);
+        }
+        return stringList;
+    }
+
+    @Test
+    void testStringCopy() {
+        assertEquals("aaa", copies3(Arrays.asList("a")).get(0));
+        assertEquals("bbbbbbbbb", copies3(Arrays.asList("bbb")).get(0));
+        assertEquals("ababab", copies3(Arrays.asList("ab")).get(0));
+    }
+
+    public List<String> copies32(List<String> strings) {
+        return strings.stream().map(x -> x + x + x).collect(Collectors.toList());
+    }
+
+    @Test
+    void testStringCopy2() {
+        assertEquals("aaa", copies32(Arrays.asList("a")).get(0));
+        assertEquals("bbbbbbbbb", copies32(Arrays.asList("bbb")).get(0));
+        assertEquals("ababab", copies32(Arrays.asList("ab")).get(0));
     }
 }
 
