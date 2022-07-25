@@ -331,6 +331,21 @@ public class WarmThird {
         assertEquals("bbbbbbbbb", copies32(Arrays.asList("bbb")).get(0));
         assertEquals("ababab", copies32(Arrays.asList("ab")).get(0));
     }
+
+    public  boolean am_i_wilson(double n) {
+        int times = 0;
+        for (int i = 1; i < n; i++) {
+            times += i * n;
+        }
+        return (times + 1) % (n * n) == 0;
+    }
+
+    @Test
+    void testًWilson() {
+        assertEquals(true, am_i_wilson(1));
+        assertEquals(true, am_i_wilson(2));
+        assertEquals(true, am_i_wilson(3));
+    }
 }
 
 
