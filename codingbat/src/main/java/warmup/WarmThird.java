@@ -168,7 +168,7 @@ public class WarmThird {
         assertEquals(1, stringMatch("ab", "ab"));
         assertEquals(1, stringMatch("aabb", "ab"));
         assertEquals(1, stringMatch("a", "a"));
-        assertEquals(2, stringMatch("abcbc", "bc"));
+        assertEquals(1, stringMatch("abcbc", "bc"));
         assertEquals(1, stringMatch("a", "a"));
     }
 
@@ -332,7 +332,7 @@ public class WarmThird {
         assertEquals("ababab", copies32(Arrays.asList("ab")).get(0));
     }
 
-    public  boolean am_i_wilson(double n) {
+    public boolean am_i_wilson(double n) {
         int times = 0;
         for (int i = 1; i < n; i++) {
             times += i * n;
@@ -343,9 +343,31 @@ public class WarmThird {
     @Test
     void testًWilson() {
         assertEquals(true, am_i_wilson(1));
-        assertEquals(true, am_i_wilson(2));
-        assertEquals(true, am_i_wilson(3));
+        assertEquals(false, am_i_wilson(2));
+        assertEquals(false, am_i_wilson(3));
+        assertEquals(true, am_i_wilson(5));
     }
+
+    int fact(long n) {
+        int f = 1;
+        for (int i = 2; i <= n; i++) {
+            f *= i;
+        }
+        return f;
+    }
+
+    boolean isPrime(long p) {
+        if (p <= 1) {
+            return false;
+        }
+        return (fact(p - 1) + 1) % p == 0;
+    }
+
+    @Test
+    void testPrime() {
+        assertEquals(false, isPrime(5));
+    }
+
 }
 
 
