@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -334,17 +335,16 @@ public class WarmThird {
 
     public boolean am_i_wilson(double n) {
         int times = 0;
-        for (int i = 1; i < n; i++) {
+        for (int i = 1; i <= n; i++) {
             times += i * n;
         }
-        return (times + 1) % (n * n) == 0;
+        return (times - 1) / Math.pow(n, 2) % 1 == 0;
+
     }
 
     @Test
     void testًWilson() {
-        assertEquals(true, am_i_wilson(1));
-        assertEquals(false, am_i_wilson(2));
-        assertEquals(false, am_i_wilson(3));
+
         assertEquals(true, am_i_wilson(5));
     }
 
@@ -367,6 +367,68 @@ public class WarmThird {
     void testPrime() {
         assertEquals(false, isPrime(5));
     }
+
+    boolean amIWilson(double P) {
+        return (factorial(P - 1) + 1) / Math.pow(P, 2) % 1 == 0;
+    }
+
+    double factorial(double n) {
+        if (n == 0) return 1;
+        else return n * factorial(n - 1);
+    }
+
+    @Test
+    void testFPrime() {
+        assertEquals(true, amIWilson(5));
+        assertEquals(false, amIWilson(156));
+    }
+
+    public int duplicateCount(String text) {
+        text = text.toLowerCase(Locale.ROOT);
+        int count = 0;
+        for (int i = 0; i < text.length(); i++) {
+            char ch = text.charAt(i);
+
+            for (int j = i + 1; j < text.length() - i; j++) {
+                char c = text.charAt(j);
+                if (c == ch) {
+                    count++;
+                }
+                text = text.replaceAll("" + c, "");
+            }
+        }
+        return count;
+    }
+
+    @Test
+    void abcdeReturnsZero() {
+        assertEquals(0, duplicateCount("abcde"));
+    }
+
+    @Test
+    public void abcdeaReturnsOne() {
+        assertEquals(1, duplicateCount("abcdea"));
+    }
+
+    @Test
+    public void indivisibilityReturnsOne() {
+        assertEquals(1, duplicateCount("indivisibility"));
+    }
+
+    @Test
+    public void reallyLongStringContainingDuplicatesReturnsThree() {
+        String testThousandA = new String(new char[1000]).replace('\0', 'a');
+        String testHundredB = new String(new char[100]).replace('\0', 'b');
+        String testTenC = new String(new char[10]).replace('\0', 'c');
+        String test1CapitalA = new String(new char[1]).replace('\0', 'A');
+        String test1d = new String(new char[1]).replace('\0', 'd');
+        String test = test1d + test1CapitalA + testTenC +
+                testHundredB + testThousandA;
+
+
+        assertEquals(3, duplicateCount(test));
+    }
+
 
 }
 
