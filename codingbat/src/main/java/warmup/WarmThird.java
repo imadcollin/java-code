@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
 import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -384,17 +383,19 @@ public class WarmThird {
     }
 
     public int duplicateCount(String text) {
-        text = text.toLowerCase(Locale.ROOT);
+
         int count = 0;
         for (int i = 0; i < text.length(); i++) {
             char ch = text.charAt(i);
 
-            for (int j = i + 1; j < text.length() - i; j++) {
+            for (int j = i + 1; j < text.length(); j++) {
                 char c = text.charAt(j);
                 if (c == ch) {
-                    count++;
+                    if (Character.isUpperCase(c) && Character.isUpperCase(ch) || Character.isLowerCase(c) && Character.isLowerCase(ch))
+                        count++;
+                    text = text.replaceAll("" + c, "");
+                    System.out.println(c);
                 }
-                text = text.replaceAll("" + c, "");
             }
         }
         return count;
@@ -406,13 +407,18 @@ public class WarmThird {
     }
 
     @Test
+    void returntwo() {
+        assertEquals(2, duplicateCount("abcdeaBReturnsTwo"));
+    }
+
+    @Test
     public void abcdeaReturnsOne() {
         assertEquals(1, duplicateCount("abcdea"));
     }
 
     @Test
-    public void indivisibilityReturnsOne() {
-        assertEquals(1, duplicateCount("indivisibility"));
+    public void indivisibilityReturnsTwo() {
+        assertEquals(2, duplicateCount("abcdeaBReturnsTwo"));
     }
 
     @Test
