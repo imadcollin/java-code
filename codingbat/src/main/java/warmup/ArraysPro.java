@@ -34,4 +34,31 @@ public class ArraysPro {
         assertEquals(1, makeMiddle(new int[]{1, 2})[0]);
         assertEquals(2, makeMiddle(new int[]{1, 2})[1]);
     }
+
+    public boolean unlucky1(int[] nums) {
+        int idx = findIndx(nums, 1);
+        if (nums.length > 0) {
+            for (int i = idx; i < nums.length; i++) {
+                if (nums[i] == 1)
+                    return false;
+
+            }
+
+        }
+        return true;
+    }
+
+    private int findIndx(int[] nums, int i) {
+        for (int j = 0; j < nums.length; j++) {
+            if (nums[j] == i) return nums[j];
+        }
+        return 0;
+    }
+
+    @Test
+    void testUnluckly1() {
+        assertEquals(true, unlucky1(new int[]{1, 2, 3, 4}));
+        assertEquals(false, unlucky1(new int[]{1, 2, 3, 4, 1}));
+        assertEquals(false, unlucky1(new int[]{1, 3, 1}));
+    }
 }
