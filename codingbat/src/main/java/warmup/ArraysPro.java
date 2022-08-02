@@ -61,4 +61,18 @@ public class ArraysPro {
         assertEquals(false, unlucky1(new int[]{1, 2, 3, 4, 1}));
         assertEquals(false, unlucky1(new int[]{1, 3, 1}));
     }
+
+    public boolean sameFirstLast(int[] nums) {
+        if (nums.length > 0) {
+            return nums[0] == nums[nums.length - 1];
+        }
+        return false;
+    }
+
+    @Test
+    void testSameFirstLast() {
+        assertEquals(true, sameFirstLast(new int[]{2, 3, 4, 5, 2}));
+        assertEquals(false, sameFirstLast(new int[]{2, 3, 4, 5}));
+        assertEquals(true, sameFirstLast(new int[]{3, 4, 5, 2, 3, 3}));
+    }
 }
