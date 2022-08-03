@@ -2,6 +2,7 @@ package warmup;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ArraysPro {
@@ -74,5 +75,35 @@ public class ArraysPro {
         assertEquals(true, sameFirstLast(new int[]{2, 3, 4, 5, 2}));
         assertEquals(false, sameFirstLast(new int[]{2, 3, 4, 5}));
         assertEquals(true, sameFirstLast(new int[]{3, 4, 5, 2, 3, 3}));
+    }
+
+    public int[] make2(int[] a, int[] b) {
+        int first = 0, second = 0;
+        if (a.length == 1) {
+            first = a[0];
+            second = b[0];
+        }
+
+        if ((a.length >= 2) && (b.length >= 2)) {
+            first = a[0];
+            second = a[1];
+        }
+        if (a.length == 0) {
+            first = b[0];
+            second = b[1];
+        }
+        if (b.length == 0) {
+            first = a[0];
+            second = a[1];
+        }
+
+        return new int[]{first, second};
+    }
+
+    @Test
+    void testMake2() {
+        assertArrayEquals(make2(new int[]{4, 5}, new int[]{1, 2, 3}), new int[]{4, 5});
+        assertArrayEquals(make2(new int[]{4}, new int[]{1, 2, 3}), new int[]{4, 1});
+        assertArrayEquals(make2(new int[]{}, new int[]{1, 2}), new int[]{1, 2});
     }
 }
