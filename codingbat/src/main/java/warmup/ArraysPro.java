@@ -106,4 +106,27 @@ public class ArraysPro {
         assertArrayEquals(make2(new int[]{4}, new int[]{1, 2, 3}), new int[]{4, 1});
         assertArrayEquals(make2(new int[]{}, new int[]{1, 2}), new int[]{1, 2});
     }
+
+    public int[] biggerTwo(int[] a, int[] b) {
+
+        /*
+          int x=0,y=x;
+
+        if(a[0]> b[0] && a[1]>b[1]){
+          x=a[0];
+          y=a[1];
+        }
+          */
+        if (a[0] > b[0] || a[1] > b[1])
+            return new int[]{a[0], a[1]};
+        else
+            return new int[]{b[0], b[1]};
+    }
+
+    @Test
+    void testBigTwo() {
+        assertArrayEquals(biggerTwo(new int[]{1, 2}, new int[]{3, 4}), new int[]{3, 4});
+        assertArrayEquals(biggerTwo(new int[]{3, 4}, new int[]{1, 2}), new int[]{3, 4});
+        assertArrayEquals(biggerTwo(new int[]{1, 1}, new int[]{1, 2}), new int[]{1, 2});
+    }
 }
