@@ -129,4 +129,19 @@ public class ArraysPro {
         assertArrayEquals(biggerTwo(new int[]{3, 4}, new int[]{1, 2}), new int[]{3, 4});
         assertArrayEquals(biggerTwo(new int[]{1, 1}, new int[]{1, 2}), new int[]{1, 2});
     }
+
+    public int[] frontPiece(int[] nums) {
+        if (nums.length > 1) {
+            return new int[]{nums[0], nums[1]};
+        }
+        return nums;
+    }
+
+    @Test
+    void testFront() {
+        assertArrayEquals(frontPiece(new int[]{1, 2, 3}), new int[]{1, 2});
+        assertArrayEquals(frontPiece(new int[]{1, 2, 3, 5, 6, 7}), new int[]{1, 2});
+        assertArrayEquals(frontPiece(new int[]{1}), new int[]{1});
+        assertArrayEquals(frontPiece(new int[]{}), new int[]{});
+    }
 }
