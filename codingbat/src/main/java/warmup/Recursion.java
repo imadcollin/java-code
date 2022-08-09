@@ -37,4 +37,29 @@ public class Recursion {
         assertEquals(boonies(5), 12);
         assertEquals(boonies(10), 25);
     }
+
+    public int count7(int n) {
+        if (n == 0) return 0;
+        if (n <= 10) {
+            if (n > 6) return 1;
+            return 0;
+        }
+
+        int count = 0;
+        if (n % 10 == 7) {
+            count++;
+        }
+        if (n / 10 == 0) return count;
+        return count + count7(n / 10);
+    }
+
+    @Test
+    void testCount() {
+
+        assertEquals(count7(3), 0);
+        assertEquals(count7(7), 1);
+        assertEquals(count7(10), 1);
+        assertEquals(count7(717), 2);
+        assertEquals(count7(777576197), 5);
+    }
 }
