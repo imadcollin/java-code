@@ -62,4 +62,24 @@ public class Recursion {
         assertEquals(count7(717), 2);
         assertEquals(count7(777576197), 5);
     }
+
+    public static void main(String[] args) {
+        String s = "abcd";
+        System.out.println(s.substring(0, 1));
+    }
+
+    public int countX(String str) {
+        if (str == null || str.equals("") || str.length() == 0) return 0;
+        if (str.charAt(0) == 'x' || str.charAt(0) == 'X') return 1 + countX(str.substring(1));
+        else
+            return countX(str.substring(1));
+    }
+
+    @Test
+    public void testCountX() {
+        assertEquals(1, countX("abcXa"));
+        assertEquals(2, countX("abcXxa"));
+        assertEquals(3, countX("abcXaXx"));
+        assertEquals(4, countX("xxbcXX"));
+    }
 }
