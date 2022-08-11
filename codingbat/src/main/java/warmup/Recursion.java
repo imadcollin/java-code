@@ -82,4 +82,18 @@ public class Recursion {
         assertEquals(3, countX("abcXaXx"));
         assertEquals(4, countX("xxbcXX"));
     }
+
+    public int strCount(String str, String sub) {
+        int count = 0;
+        if (str.length() < sub.length()) return 0;
+        if (str.substring(0, sub.length()).equalsIgnoreCase(sub)) return 1 + strCount(str.substring(sub.length()), sub);
+        return strCount(str.substring(1), sub);
+    }
+
+    @Test
+    public void testStrCount() {
+        assertEquals(1, strCount("catone", "cat"));
+        assertEquals(2, strCount("catoncate", "cat"));
+        assertEquals(3, strCount("catonecatcat", "cat"));
+    }
 }
