@@ -96,4 +96,24 @@ public class Recursion {
         assertEquals(2, strCount("catoncate", "cat"));
         assertEquals(3, strCount("catonecatcat", "cat"));
     }
+
+    public int countAbc(String str) {
+        if (str.equalsIgnoreCase("abc") || str.equalsIgnoreCase("aba")) return 1;
+        if (str.length() > 3) {
+            if (str.substring(0, 3).equalsIgnoreCase("abc") || str.substring(0, 3).equalsIgnoreCase("aba"))
+                return 1 + countAbc(str.substring(1));
+            return countAbc(str.substring(1));
+        }
+        return 0;
+    }
+
+    @Test
+    void testCountAbc() {
+        assertEquals(0, countAbc("axxc"));
+        assertEquals(1, countAbc("abc"));
+        assertEquals(2, countAbc("abcabc"));
+        assertEquals(2, countAbc("abaaba"));
+        assertEquals(2, countAbc("ababc"));
+    }
+
 }
