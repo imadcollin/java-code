@@ -116,4 +116,24 @@ public class Recursion {
         assertEquals(2, countAbc("ababc"));
     }
 
+    public int countHi2(String str) {
+        if (str.equals("") || str == null) return 0;
+        if (str.length() == 2) {
+            if (str.equals("hi")) return 1;
+        }
+        if (str.substring(0, 1).equals("x")) return countHi2(str.substring(3));
+
+        if (str.substring(0, 2).equals("hi")) return 1 + countHi2(str.substring(2));
+        return countHi2(str.substring(1));
+    }
+
+
+    @Test
+    void testCountHi() {
+        assertEquals(1, countHi2("hi"));
+        assertEquals(2, countHi2("ahihi"));
+        assertEquals(3, countHi2("ahihihi"));
+    }
+
+
 }
