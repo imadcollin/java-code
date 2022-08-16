@@ -135,5 +135,25 @@ public class Recursion {
         assertEquals(3, countHi2("ahihihi"));
     }
 
+    public String pairStar(String str) {
+        if (str.equals("")) return "";
+        if (str.length() == 1) return str;
+
+        if (str.charAt(0) == str.charAt(1)) {
+            return str.charAt(0) + "*" + pairStar(str.substring(1));
+        }
+
+        return str.charAt(0) + pairStar(str.substring(1));
+    }
+
+    @Test
+    void testPairString() {
+        assertEquals("hel*lo", pairStar("hello"));
+        assertEquals("a*a*a*a", pairStar("aaaa"));
+        assertEquals("a*a", pairStar("aa"));
+        assertEquals("a*ax*x", pairStar("aaxx"));
+        assertEquals("x*xa*a", pairStar("xxaa"));
+    }
+
 
 }
