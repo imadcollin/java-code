@@ -155,5 +155,21 @@ public class Recursion {
         assertEquals("x*xa*a", pairStar("xxaa"));
     }
 
+    public int array11(int[] nums, int index) {
+        if (nums.length == 0) return 0;
+        if (index >= nums.length) return 0;
+        if (nums[index] == 11) return 1 + array11(nums, index + 1);
+        else
+            return array11(nums, index + 1);
+    }
+
+    @Test
+    void testArry11() {
+        assertEquals(1, array11(new int[]{1, 2, 11, 2}, 0));
+        assertEquals(1, array11(new int[]{1, 2, 11}, 0));
+        assertEquals(2, array11(new int[]{1, 2, 11, 11}, 0));
+        assertEquals(3, array11(new int[]{11, 11, 1, 2, 11}, 0));
+    }
+
 
 }
