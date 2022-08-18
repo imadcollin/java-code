@@ -171,5 +171,26 @@ public class Recursion {
         assertEquals(3, array11(new int[]{11, 11, 1, 2, 11}, 0));
     }
 
+    public boolean array220(int[] nums, int index) {
+        if (nums.length == 0) return false;
+        if (nums.length == 1) return false;
+        if (index < nums.length) {
+            if (nums[index] * 10 == nums[index + 1]) {
+                return true;
+            } else
+                return array220(nums, index + 1);
+        }
+        return false;
+    }
+
+    @Test
+    void testArray220() {
+        assertEquals(true, array220(new int[]{1, 2, 20}, 0));
+        assertEquals(true, array220(new int[]{3, 30}, 0));
+        assertEquals(false, array220(new int[]{}, 0));
+        assertEquals(true, array220(new int[]{1, 2, 20}, 0));
+        assertEquals(true, array220(new int[]{3, 3, 30, 4}, 0));
+    }
+
 
 }
