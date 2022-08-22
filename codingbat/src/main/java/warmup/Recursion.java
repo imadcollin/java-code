@@ -193,4 +193,28 @@ public class Recursion {
     }
 
 
+    public String noX(String str) {
+        if (str == "" || str.length() == 0) return "";
+
+        if (str.length() == 1 && str.equals("x")) return "";
+
+        if (str.charAt(0) == 'x') return noX(str.substring(1));
+
+        return str.charAt(0) + noX(str.substring(1));
+    }
+
+    @Test
+    void testNoX() {
+
+        assertEquals("abc", noX("abc"));
+        assertEquals("ac", noX("xac"));
+        assertEquals("ac", noX("axc"));
+        assertEquals("ac", noX("axc"));
+        assertEquals("ac", noX("axcxx"));
+        assertEquals("ac", noX("xxaxc"));
+
+
+    }
+
+
 }
