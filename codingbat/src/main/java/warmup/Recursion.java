@@ -216,5 +216,31 @@ public class Recursion {
 
     }
 
+    public int count8(int n) {
+        if (n < 1) return 0;
+        if (n <= 10) {
+            if (n == 8) return 1;
+            return 0;
+        }
+        int right = n % 10;
+        int times = right;
+        if (right == 8) {
+            int trail = n / 10;
+            int i = trail % 10;
+            if (times == i) return 2 + count8(n / 10);
+            return 1 + count8(n / 10);
+        }
+        return count8(n / 10);
+    }
+
+    @Test
+    void testCount8() {
+        assertEquals(1, count8(8));
+        assertEquals(1, count8(128));
+        assertEquals(2, count8(8228));
+        assertEquals(3, count8(881212));
+        assertEquals(4, count8(8182818));
+    }
+
 
 }
