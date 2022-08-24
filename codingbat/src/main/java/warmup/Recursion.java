@@ -242,5 +242,20 @@ public class Recursion {
         assertEquals(4, count8(8182818));
     }
 
+    public int countHi(String str) {
+        if (str.length() == 0 || str.equals("")) return 0;
+        if (str.length() < 2) return 0;
+        if (str.substring(0, 2).equals("hi")) return 1 + countHi(str.substring(1));
+        else
+            return countHi(str.substring(1));
+    }
+
+    @Test
+    void testCountHis() {
+        assertEquals(1, countHi("hi"));
+        assertEquals(2, countHi("hieeeehi"));
+        assertEquals(3, countHi("hidddhidhi"));
+        assertEquals(4, countHi("hihihihi"));
+    }
 
 }
