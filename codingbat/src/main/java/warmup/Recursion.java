@@ -258,4 +258,18 @@ public class Recursion {
         assertEquals(4, countHi("hihihihi"));
     }
 
+    public int sumDigits(int n) {
+        if (n < 10) return n;
+        int right = n % 10;
+        return right + sumDigits(n / 10);
+    }
+
+    @Test
+    void testSumDigits() {
+        assertEquals(1, sumDigits(1));
+        assertEquals(10, sumDigits(91));
+        assertEquals(15, sumDigits(13443));
+        assertEquals(15, sumDigits(12345));
+        assertEquals(25, sumDigits(19195));
+    }
 }
