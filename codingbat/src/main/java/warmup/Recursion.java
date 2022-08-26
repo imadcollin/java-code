@@ -272,4 +272,18 @@ public class Recursion {
         assertEquals(15, sumDigits(12345));
         assertEquals(25, sumDigits(19195));
     }
+
+    public int powerN(int base, int n) {
+        if (n == 0) return 1;
+        return base * powerN(base, n - 1);
+    }
+
+    @Test
+    void testPowerN() {
+        assertEquals(2, powerN(2, 1));
+        assertEquals(4, powerN(2, 2));
+        assertEquals(9, powerN(3, 2));
+        assertEquals(16, powerN(4, 2));
+    }
+
 }
