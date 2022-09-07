@@ -1,11 +1,13 @@
 package feature;
 
+
 public class NewFeature {
 
     public String switchCase(String str) {
         return switch (str) {
             case "hello" -> "hello world";
             case "bye" -> "good bye";
+            default -> "not valid input";
         };
     }
 
@@ -18,6 +20,21 @@ public class NewFeature {
             default:
                 yield "none";
         };
+    }
+
+    public int stringLengthinstanse(String str) {
+        Object obj = str;
+        if (obj instanceof String) {
+            String value = ((String) obj);
+            return ((String) value).length();
+        }
+        return 0;
+    }
+
+    public int stringLEngthNewWay(String str) {
+        Object obj = str;
+        if (obj instanceof String value) return value.length();
+        return 0;
     }
 }
 

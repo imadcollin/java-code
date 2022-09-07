@@ -23,6 +23,7 @@
     <modules>
         <module>servernet</module>
         <module>algorithm</module>
+        <module>Java17</module>
     </modules>
     <dependencies>
         <dependency>

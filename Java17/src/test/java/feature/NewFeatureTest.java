@@ -25,4 +25,12 @@ class NewFeatureTest {
         assertEquals("holiday", newFeature.switchCase2("sun"));
         assertEquals("working", newFeature.switchCase2("tues"));
     }
+
+    @Test
+    void testStringLength() {
+        assertEquals(2, newFeature.stringLEngthNewWay("ab"));
+        assertEquals(4, newFeature.stringLengthinstanse("abcd"));
+        assertEquals(2, newFeature.stringLEngthNewWay("ab"));
+        assertEquals(4, newFeature.stringLengthinstanse("abcd"));
+    }
 }
