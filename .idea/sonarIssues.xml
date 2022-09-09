@@ -18,6 +18,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/Java17/src/main/java/feature/Records.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Java17/src/main/java/feature/SealedClasses.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/Java17/src/test/java/feature/NewFeatureTest.java">
           <value>
             <set />
