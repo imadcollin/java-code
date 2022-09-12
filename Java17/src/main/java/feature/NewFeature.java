@@ -36,6 +36,23 @@ public class NewFeature {
         if (obj instanceof String value) return value.length();
         return 0;
     }
+
+    public String stringNewLine() {
+
+        return """ 
+                one 
+                two 
+                three
+                """;
+    }
+
+    public String getFormatedString(String s1, String s2) {
+        return
+                """
+                        Name: %s 
+                        NickName: %s
+                        """.formatted(s1, s2);
+    }
 }
 
 class Person {

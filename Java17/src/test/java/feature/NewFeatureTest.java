@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class NewFeatureTest {
 
@@ -32,5 +33,15 @@ class NewFeatureTest {
         assertEquals(4, newFeature.stringLengthinstanse("abcd"));
         assertEquals(2, newFeature.stringLEngthNewWay("ab"));
         assertEquals(4, newFeature.stringLengthinstanse("abcd"));
+    }
+
+    @Test
+    void testGetStringLineBreak() {
+        assertTrue((newFeature.stringNewLine().contains("\n")));
+    }
+
+    @Test
+    void testGetStringFormatted() {
+        assertEquals("Name: Pop\nNickName: Lat\n", newFeature.getFormatedString("Pop", "Lat"));
     }
 }
