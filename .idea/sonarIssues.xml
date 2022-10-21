@@ -43,6 +43,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/codingbat/src/main/java/warmup/Fibn.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/codingbat/src/main/java/warmup/Recursion.java">
           <value>
             <set />
@@ -94,6 +99,46 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/multithreading/src/main/java/lab2/MemoryError.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/solid/src/main/java/com/solid/Bike.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/solid/src/main/java/com/solid/Car.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/solid/src/main/java/com/solid/Liskov.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/solid/src/main/java/com/solid/OpenClosed.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/solid/src/main/java/com/solid/Vehicle.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/solid/src/main/java/com/solid/VehicleOpenClosed.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/solid/src/main/java/single/responsiblities/Vehicle.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/solid/src/main/java/solid/Vehicle.java">
           <value>
             <set />
           </value>
