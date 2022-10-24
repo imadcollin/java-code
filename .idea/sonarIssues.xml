@@ -8,6 +8,11 @@
             <set />
           </value>
         </entry>
+        <entry key="/a.dummy">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/Java17/pom.xml">
           <value>
             <set />
@@ -69,6 +74,31 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/codingbat/src/main/java/warmup/WarmupSecond.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/java/factory/method/pattern/Commercial.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/java/factory/method/pattern/CommercialPlan.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/java/factory/method/pattern/DomsticPlan.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/java/factory/method/pattern/Plan.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/java/factory/method/pattern/PlanFactory.java">
           <value>
             <set />
           </value>

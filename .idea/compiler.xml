@@ -7,11 +7,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="codingbat" />
         <module name="javawar" />
         <module name="servernet" />
-        <module name="multithreading" />
+        <module name="design-pattern" />
         <module name="solid" />
+        <module name="codingbat" />
+        <module name="multithreading" />
         <module name="Java17" />
       </profile>
     </annotationProcessing>

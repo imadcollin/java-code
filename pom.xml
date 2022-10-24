@@ -25,6 +25,7 @@
         <module>algorithm</module>
         <module>Java17</module>
         <module>solid</module>
+        <module>design-pattern</module>
     </modules>
     <dependencies>
         <dependency>

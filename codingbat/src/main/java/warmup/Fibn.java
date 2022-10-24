@@ -8,15 +8,24 @@ import java.util.List;
 
 public class Fibn {
 
+    public static void main(String[] args) {
+        System.out.println(sumFun(8));
+    }
+
     public static int sumFun(int n) {
         int[] finArr = new int[n];
+        finArr[0] = 1;
+        finArr[1] = 1;
+
         int sum = 0;
         int num = 0;
-        for (int i = 0; i < n; i++) {
-            finArr[i] = i;
+        for (int i = 2; i < finArr.length; i++) {
+            finArr[i] = i; //1 1 2 3 4 5 6 7
         }
-        for (int i = 0; i < finArr.length - 1; i++) {
-            num = finArr[i] + finArr[i + 1];
+        // 2 1 -> 3 :
+        for (int i = 2; i < finArr.length; i++) {
+            num = finArr[i-1 ] + finArr[i - 2];
+            finArr[i] = num;
             sum += num;
             System.out.println(num);
         }
@@ -39,6 +48,7 @@ public class Fibn {
                 num = first + i;
                 temp = i;
                 list.add(num);
+                System.out.println(n);
             }
         }
         return list;
