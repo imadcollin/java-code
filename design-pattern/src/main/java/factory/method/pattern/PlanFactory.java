@@ -6,7 +6,7 @@ public class PlanFactory {
 
         else if (plan.equalsIgnoreCase("CommercialPlan")) return new CommercialPlan();
 
-        else if (plan.equalsIgnoreCase("DomsticPlan")) return new CommercialPlan();
+        else if (plan.equalsIgnoreCase("DomsticPlan")) return new DomsticPlan();
 
         return null;
     }

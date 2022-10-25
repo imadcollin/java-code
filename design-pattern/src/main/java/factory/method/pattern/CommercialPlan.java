@@ -7,7 +7,12 @@ public class CommercialPlan extends Plan{
     }
 
     @Override
+    public void getName() {
+        name = "Commercial PLan";
+    }
+
+    @Override
     public void printBill() {
-        System.out.println("Rate is 20! ");
+        System.out.println("Rate is 20 ");
     }
 }
