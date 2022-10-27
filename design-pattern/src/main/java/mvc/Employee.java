@@ -1,4 +1,4 @@
-package mvc.design.pattern;
+package mvc;
 
 public class Employee {
     private int id;

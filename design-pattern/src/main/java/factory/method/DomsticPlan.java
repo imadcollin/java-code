@@ -1,4 +1,4 @@
-package factory.method.pattern;
+package factory.method;
 
 public class DomsticPlan extends Plan {
     @Override

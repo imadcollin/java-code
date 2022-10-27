@@ -1,4 +1,4 @@
-package factory.method.pattern;
+package factory.method;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

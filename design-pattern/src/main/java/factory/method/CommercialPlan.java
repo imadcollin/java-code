@@ -1,4 +1,4 @@
-package factory.method.pattern;
+package factory.method;
 
 public class CommercialPlan extends Plan{
     @Override

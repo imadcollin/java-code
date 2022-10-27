@@ -1,4 +1,4 @@
-package factory.method.pattern;
+package factory.method;
 
 public class PlanFactory {
     public Plan getPlan(String plan) {

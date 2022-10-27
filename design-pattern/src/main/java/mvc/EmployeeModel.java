@@ -1,4 +1,4 @@
-package mvc.design.pattern;
+package mvc;
 
 public class EmployeeModel {
     protected void print(String name, int id, double salary) {
