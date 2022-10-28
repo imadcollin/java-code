@@ -8,7 +8,7 @@ public class Adapter implements AdvancePlayer {
             if (getFileExtension(file).equalsIgnoreCase("midi")) advancePlayer = new MidiPlayer();
         }
         if (file != null && !file.equals("")) {
-            if (getFileExtension(file).equalsIgnoreCase("mp3")) advancePlayer = new Mp3Player();
+            if (getFileExtension(file).equalsIgnoreCase("mp3")) advancePlayer = (AdvancePlayer) new Mp3Player();
         }
     }
 
@@ -22,6 +22,6 @@ public class Adapter implements AdvancePlayer {
     private static String getFileExtension(String file) {
         int i = file.lastIndexOf(".");
         if (i > 0) return file.substring(i + 1);
-
+        return "";
     }
 }
