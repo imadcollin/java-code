@@ -253,6 +253,51 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/java/iterator/Channel.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/java/iterator/ChannelIterator.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/java/iterator/ChannelIteratorImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/java/iterator/Channels.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/java/iterator/IChannels.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/java/iterator/IIterator.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/java/iterator/Main.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/java/iterator/MyIterator.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/java/iterator/TYPE.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/design-pattern/src/main/java/mvc/Employee.java">
           <value>
             <set />
