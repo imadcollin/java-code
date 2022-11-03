@@ -1,28 +1,27 @@
 package iterator;
 
-public class ChannelIteratorImpl implements ChannelIterator, IChannels{
-    @Override
-    public boolean hasNext() {
-        return false;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ChannelIteratorImpl implements IChannels {
+    private List<Channel> channelsList;
+
+    public ChannelIteratorImpl() {
+        this.channelsList = new ArrayList<>();
     }
 
     @Override
-    public Channel next() {
-        return null;
+    public void add(Channel channel) {
+        channelsList.add(channel);
     }
 
     @Override
-    public void add(Channel channels) {
-
-    }
-
-    @Override
-    public void remove(Channel channels) {
-
+    public void remove(Channel channel) {
+        channelsList.remove(channel);
     }
 
     @Override
     public ChannelIterator iterator(TYPE type) {
-        return null;
+        return new ChanellImpl(type, this.channelsList);
     }
 }
