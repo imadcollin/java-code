@@ -10,16 +10,18 @@ public class ChanellImpl implements ChannelIterator {
     public ChanellImpl(TYPE type, List<Channel> channelsList) {
         this.type = type;
         this.chanellList = channelsList;
-        this.index = channelsList.size();
     }
 
     @Override
     public boolean hasNext() {
-        if (!chanellList.isEmpty() && index >= 0) {
-            return chanellList.size() > 0 && chanellList.size() > index--;
-        } else
-            return false;
-
+        while (index< chanellList.size()) {
+            Channel c = chanellList.get(index);
+            if (c.getType().equals(type)) {
+                return true;
+            }else
+                index++;
+    }
+        return false;
     }
 
     @Override

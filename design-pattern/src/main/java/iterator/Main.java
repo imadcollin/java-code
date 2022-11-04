@@ -19,12 +19,23 @@ public class Main {
         Channel c5 = new Channel(5, "G", TYPE.ARABIC);
 
         List<Channel> list = Arrays.asList(c1, c2, c3);
-        ChannelIterator channelIterator = new ChanellImpl(TYPE.ARABIC, list);
+        ChannelIteratorImpl impl = new ChannelIteratorImpl();
+        impl.add(c1);
+        impl.add(c2);
+        impl.add(c3);
+        impl.add(c4);
+        impl.add(c5);
 
-        while (channelIterator.hasNext()) {
-            Channel ch = channelIterator.next();
+        ChannelIterator arabic = impl.iterator(TYPE.ARABIC);
+        while (arabic.hasNext()) {
+            Channel ch = arabic.next();
             System.out.println(String.format("%s\t%s\t%s", ch.getIdx(), ch.getName(), ch.getType()));
         }
 
+        ChannelIterator french = impl.iterator(TYPE.FRENCH);
+        while (french.hasNext()) {
+            Channel ch = french.next();
+            System.out.println(String.format("%s\t%s\t%s", ch.getIdx(), ch.getName(), ch.getType()));
+        }
     }
 }
