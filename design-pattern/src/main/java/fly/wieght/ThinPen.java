@@ -4,11 +4,6 @@ public class ThinPen implements Pen {
     private String color;
     private Brush brush = Brush.SMALL;
 
-    public ThinPen(String color, Brush brush) {
-        this.color = color;
-        this.brush = brush;
-    }
-
     @Override
     public void setColor(String color) {
         this.color = color;
