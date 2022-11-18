@@ -9,16 +9,24 @@ public class Lamp {
         this.button = button;
     }
 
+    public Lamp() {
+
+    }
+
     public void turnOn() {
-        if (power.isConnected())
-            button.pressUP();
-        System.out.println("Turn On...");
+        if (power.isConnected() && button.isButtonON())
+            System.out.println("Turn On...");
+        else
+            System.out.println("You shoukd connect and press button on...");
 
     }
 
     public void turnOff() {
-        button.pressDown();
-        System.out.println("Turn Off...");
+        if (!button.isButtonON())
+            System.out.println("Turn Off...");
+        else
+            System.out.println("You need to Press the button down...");
+
 
     }
 

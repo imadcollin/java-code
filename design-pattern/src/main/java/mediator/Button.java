@@ -1,18 +1,19 @@
 package mediator;
 
 public class Button {
-    private boolean status;
+    private boolean on;
 
     void pressUP() {
-        status = true;
+        on = true;
         System.out.println("Press Up...");
     }
 
     void pressDown() {
-
-        status = false;
+        on = false;
         System.out.println("Press Down...");
+    }
 
-
+    public boolean isButtonON() {
+        return on;
     }
 }
