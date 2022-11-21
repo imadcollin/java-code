@@ -513,6 +513,21 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/java/protoype/Employee.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/java/protoype/IEmployee.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/java/protoype/Main.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/design-pattern/src/main/java/strategy/Addition.java">
           <value>
             <set />
