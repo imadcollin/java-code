@@ -348,6 +348,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/java/interpreter/Expression.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/java/interpreter/Manager.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/design-pattern/src/main/java/iterator/ChanellImpl.java">
           <value>
             <set />
