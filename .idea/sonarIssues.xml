@@ -238,6 +238,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/java/factory/ManualPistol.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/java/factory/PistolFactory.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/design-pattern/src/main/java/factory/method/CommercialPlan.java">
           <value>
             <set />
@@ -354,6 +364,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/design-pattern/src/main/java/interpreter/Manager.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/java/interpreter/TerminalExpression.java">
           <value>
             <set />
           </value>
@@ -584,6 +599,56 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/design-pattern/src/main/java/strategy/Subtraction.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/practical/factory/Ak1.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/practical/factory/Ak4.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/practical/factory/AkFactory.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/practical/factory/AutomaticPistol.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/practical/factory/ManualPistol.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/practical/factory/Pistol.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/practical/factory/PistolFactory.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/practical/factory/Weapon.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/main/practical/factory/WeaponFactory.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/test/java/factory/WeaponFactoryTest.java">
           <value>
             <set />
           </value>
