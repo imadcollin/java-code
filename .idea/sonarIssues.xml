@@ -648,6 +648,21 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/test/java/builder/User.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/test/java/builder/UserFactory.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/design-pattern/src/test/java/builder/UserFactoryTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/design-pattern/src/test/java/factory/WeaponFactoryTest.java">
           <value>
             <set />
