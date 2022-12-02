@@ -1,6 +1,6 @@
 package adapter;
 
-public interface ChargerAdapter extends  AndroidCharger, AppleCharger{
+public interface ChargerAdapter{
     void charge();
     void comsumptionMeasuer();
 }

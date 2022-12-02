@@ -1,19 +1,18 @@
 package adapter;
 
-public class Charger implements ChargerAdapter {
+public class Charger implements AndroidCharger, ChargerAdapter {
     private String phoneType;
-    private ChargerAdapter chargerAdapter;
-    private boolean supported = false;
+    private IosCharger iosCharger;
 
     public Charger(String phoneTpye) {
         this.phoneType = phoneTpye;
-        init();
     }
 
-    private void init() {
+    @Override
+    public void charge() {
         if (isIos(phoneType)) {
-            IosCharger ios = new IosCharger();
-            ios.charge();
+            iosCharger = new IosCharger();
+            iosCharger.charge();
         }
         if (isAndroid(phoneType)) {
             if (phoneType.equalsIgnoreCase("Nokia")) {
@@ -24,11 +23,6 @@ public class Charger implements ChargerAdapter {
                 samsungCharger.charge();
             }
         }
-    }
-
-    @Override
-    public void charge() {
-
     }
 
     @Override
