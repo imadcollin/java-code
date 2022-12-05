@@ -26,6 +26,7 @@
         <module>Java17</module>
         <module>solid</module>
         <module>design-pattern</module>
+        <module>java-principle</module>
     </modules>
     <dependencies>
         <dependency>
