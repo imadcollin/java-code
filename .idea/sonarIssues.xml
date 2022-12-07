@@ -818,6 +818,46 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/java-principle/src/main/java/solid/Circle.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/java-principle/src/main/java/solid/ICirculareShapes.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/java-principle/src/main/java/solid/IShape.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/java-principle/src/main/java/solid/Main.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/java-principle/src/main/java/solid/Rectangle.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/java-principle/src/main/java/solid/Regtancle.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/java-principle/src/main/java/solid/ShapeImp.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/java-principle/src/main/java/solid/Square.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/java-principle/src/test/java/kissTest.java">
           <value>
             <set />
