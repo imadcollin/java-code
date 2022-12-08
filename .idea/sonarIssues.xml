@@ -813,6 +813,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/java-principle/src/main/java/coupling/LooseCoupling.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/java-principle/src/main/java/coupling/TightCoupling.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/java-principle/src/main/java/kiss.java">
           <value>
             <set />
