@@ -15,6 +15,7 @@
         <module name="multithreading" />
         <module name="Java17" />
         <module name="java-principle" />
+        <module name="handy" />
       </profile>
     </annotationProcessing>
   </component>

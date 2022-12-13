@@ -803,6 +803,36 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/handy/src/main/java/genrics/AinmalDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/handy/src/main/java/genrics/Cat.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/handy/src/main/java/genrics/Dog.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/handy/src/main/java/genrics/DogDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/handy/src/main/java/genrics/IAnimal.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/handy/src/main/java/genrics/MAIN.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/java-principle/src/main/java/DRY.java">
           <value>
             <set />
