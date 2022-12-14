@@ -15,8 +15,8 @@ public class MAIN {
         printList(stringList);
 
         AinmalDao ainmalDao = new AinmalDao();
-        prittAnimals(ainmalDao.getDogs());
-        prittAnimals(ainmalDao.getCats());
+        ainmalDao.prittAnimals(ainmalDao.getDogs());
+        ainmalDao.prittAnimals(ainmalDao.getCats());
 
     }
 
@@ -24,8 +24,4 @@ public class MAIN {
         list.forEach(System.out::println);
     }
 
-    public static <IAnimal> void prittAnimals(List<IAnimal> list) {
-       Dog d= (Dog) list.get(0);
-       System.out.println(d.getName());
-    }
 }
